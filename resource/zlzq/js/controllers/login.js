@@ -121,10 +121,12 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                         if (data.user) {
                             data.user.token=data.token;
                             data.user.nick_name=data.nick_name;
-                            data.user.avatar=data.avatar
+                            data.user.avatar=data.avatar;
+                            data.user.pwd=self.$el.find("#password").val();
                             self.setLoginStatus({isLogin: true,user: data.user,token:data.token});
 
                             Lizard.goTo("index.html");
+
                         }
 
                     },
@@ -152,7 +154,8 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                 self.hideLoading();
 
                 console.log(this.isLogin())
-
+                this.$el.find("#password").value("");
+                //this.$el.find("#username").value("");
             },
             //设置标题
             setHeader: function (type) {

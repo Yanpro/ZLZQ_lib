@@ -298,9 +298,16 @@
  <div class="housing" >
      <div class="house_intro">
          <p class="house_title">益田花园一期</p>
-         <p class="house_highlight"><span class="house-big"><%=realty.price%></span>元/月</p>
-         <p class="house_tip">发布时间：&nbsp;<%=realty.published_at%></p>
-         <p class="house_tip">联系方式：&nbsp;<a href="tel:<%=realty.owner.cell%>"><%=realty.owner.cell%></a></p>
+
+         <p class="house_highlight"> <%if(realty.price!=null){%><span class="house-big"><%=realty.price%></span><%}%>元/月</p>
+
+         <p class="house_tip">发布时间：
+             <%if(realty.price!=null){%>
+                &nbsp;<%=realty.published_at%>
+             <%}%>
+         </p>
+
+         <p class="house_tip">联系方式：&nbsp;<a href="tel:<%=realty.owner.cell%>"><img src="./resource/zlzq/images/tel.png" style="width: 30px;height: 26px;margin-left: 10px;"></a></p>
 
      </div>
      <div class="house_icon">
@@ -312,15 +319,22 @@
  <ul class="info_list info_ct house_info_list">
      <li>
          <span class="info_name">户型</span>
-         <span><%=realty.title%></span>
+         <%if(realty.title!=null){%>
+           <span><%=realty.title%></span>
+         <%}%>
      </li>
      <li>
          <span class="info_name">区域板块</span>
+         <%if(typeof(realty.location)!="undefined"){%>
+
          <span><%=realty.location.district%>&nbsp;&nbsp;<%=realty.location.quarter%></span>
+         <%}%>
      </li>
      <li>
          <span class="info_name">面积</span>
+         <%if(realty.area!=null){%>
          <span><%=realty.area%>m<sup>2</sup></span>
+         <%}%>
      </li>
      <li>
          <span class="info_name">合租情况</span>
@@ -328,15 +342,21 @@
      </li>
      <li>
          <span class="info_name">装修</span>
+         <%if(realty.fitment!=null){%>
          <span><%=realty.fitment%></span>
+         <%}%>
      </li>
      <li>
          <span class="info_name">入住时间</span>
+         <%if(realty.checkin_at!=null){%>
          <span><%=realty.checkin_at%></span>
+         <%}%>
      </li>
      <li>
          <span class="info_name">楼层</span>
+         <%if(realty.floor!=null){%>
          <span><%=realty.floor%></span>
+         <%}%>
      </li>
      <!--<li class="info_labels">
          <div class="info_label_item"><i class="icon icon-web"></i>宽带</div>

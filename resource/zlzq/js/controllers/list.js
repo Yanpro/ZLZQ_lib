@@ -139,10 +139,10 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
         toIndex:function(e){
             Lizard.goTo("index.html");
         },
-        toRent:function(e){
-            self.toggleSideBar();
-            Lizard.goTo("list.html");
-        },
+        //toRent:function(e){
+        //    self.toggleSideBar();
+        //    Lizard.goTo("list.html");
+        //},
 
         toHouse:function(e){
             var target = $(e.currentTarget);

@@ -68,10 +68,10 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplRegister"], func
             toLogin:function(e){
                 Lizard.goTo("login.html");
             },
-            toRent:function(e){
-                self.toggleSideBar();
-                Lizard.goTo("list.html");
-            },
+            //toRent:function(e){
+            //    self.toggleSideBar();
+            //    Lizard.goTo("list.html");
+            //},
             toReg: function (e) {
 
                 var mobile = $.trim(this.$el.find(".username").val());

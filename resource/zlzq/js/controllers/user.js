@@ -32,7 +32,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             Lizard.goTo("myScore.html");
         },
         toRent:function(e){
-            Lizard.goTo("index.html");
+            Lizard.goTo("newindex.html");
         },
         toMine:function(e){
             Lizard.goTo("user.html");

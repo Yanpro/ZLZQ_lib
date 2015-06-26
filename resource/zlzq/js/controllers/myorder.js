@@ -11,8 +11,9 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         },
 
         selectDate:function(e){
-            self.currentDateBox=$(e.currentTarget);
             self.dateScroller.show();
+            self.currentDateBox=$(e.currentTarget);
+
         },
         toReserve:function(e){
             self.$el.find(".info_ct").hide();

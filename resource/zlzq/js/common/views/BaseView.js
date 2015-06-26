@@ -23,7 +23,7 @@ define(['cPageView', 'cGuider', 'cUtility','Store','Model', 'UIAlert'], function
 			});
 		},
 		toRent:function(e){
-			Lizard.goTo("index.html");
+			Lizard.goTo("newindex.html");
 		},
 		toOrder:function(e){
 			Lizard.goTo("order.html");

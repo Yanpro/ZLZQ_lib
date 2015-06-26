@@ -1,11 +1,12 @@
 <div class="personal">
     <div class="info-box">
-     <div class="avatar-box">
+     <div class="avatar-box" type="file" accept="image/*;capture=camera">
          头像
          <div>
              <img  class="avatar" src="<%=user.avatar.avatar.url%>">
          </div>
          <i class="arrow"></i>
+         <input type="hidden" accept="image/*;capture=camera">
      </div>
         <div>
             <ul class="opt-list">

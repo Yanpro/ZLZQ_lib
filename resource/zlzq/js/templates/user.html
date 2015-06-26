@@ -1,7 +1,11 @@
 <div  class="hbg-box">
     <div class="hbg-box-inner">
         <div>
+            <%if(user.avatar.avatar.url!=null){%>
             <img  class="avatar" src="<%=user.avatar.avatar.url%>">
+            <%}else{%>
+            <img  class="avatar" src="./resource/zlzq/images/myheader.png">
+            <%}%>
         </div>
         <div class="info">
            <h2><%=user.nick_name%> &nbsp;<b></b></h2>

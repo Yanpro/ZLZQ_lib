@@ -1,5 +1,5 @@
 define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!TplNewIndex"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,TplNewIndex) {
-    var self,
+    var self,pic,
         listModel=Model.ListModel.getInstance();
     var View = BaseView.extend({
         ViewName: 'newindex',
@@ -8,7 +8,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toPersonal",
             "click .bottom-bar .order":"toOrder",
-            "click .info_label_item .myhouse":"myHouse",
+            "click .info_label_item1 .myhouse":"myHouse",
 
         },
 
@@ -25,8 +25,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
         onShow: function () {
             self.hideLoading();
             self.setHeader();
-
-            var data = [
+            self.$el.html(TplNewIndex);
+             pic = [
                 {id: 1, src: './resource/zlzq/images/newindex1.png', href: './res/img/1.jpg'},
                 {id: 2, src: './resource/zlzq/images/newindex1.png', href: './res/img/2.jpg'},
                 {id: 3, src: './resource/zlzq/images/newindex1.png', href: './res/img/3.jpg'},
@@ -41,13 +41,13 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
 
             self.houseSlider = new cUIImageSlider({
                 datamodel: {
-                    data: data,
+                    data: pic,
                     itemFn: function (item) {
                         return '<img data-src="' + item.src + '" src="' + item.src + '" >';
                     }
                 },
                 displayNum: 1,
-                wrapper: this.$('.house_slider')
+                wrapper: this.$('.house_slider1')
             });
             self.houseSlider.show();
 
@@ -73,8 +73,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             });
         },
         onHide: function () {
-            $("#headerview").show();
-            $("#main").css("padding-top","44px");
+
         }
     });
 

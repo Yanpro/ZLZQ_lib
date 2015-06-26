@@ -201,26 +201,58 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                         self.setHeader();
                     },
                     commitHandler: function () {
+                        self.ensureName();
                     }
                 }
             });
         },
         //
         ensureName:function(){
-            var upname=self.$el.find(".name-box .name").val();
+
             self.showLoading();
-            var url = "http://zlzq.easybird.cn/api/v1/renter/" + user.id;
+            var url = "http://zlzq.easybird.cn/api/v1/renters/" +self.getCurrentUser().actor_id;
             $.ajax({
                 url: url,
                 type: "PUT",
                 dataType: "json",
-                data:{"renter[nick_name]":""},
+                data:{"renter[nick_name]":self.$el.find(".name-box .name").val(),auth_token:self.getCurrentUser().authentication_token},
                 success: function (data) {
                     self.hideLoading();
-                    if (data.success) {
-                        self.setLoginStatus({});
-                        Lizard.goTo("login.html");
+                    self.showMyToast("修改成功！", 1000);
+
+                    self.login();
+                },
+                error: function (e) {
+                    self.hideLoading();
+                    self.showMyToast("服务器异常", 1000);
+                }
+            });
+        },
+
+        login:function(){
+            var url = "http://zlzq.easybird.cn/api/v1/users/login";
+            $.ajax({
+                url: url,
+                dataType: "json",
+                type: "post",
+                data: {cell: self.getCurrentUser().cell, password:self.getCurrentUser().pwd },
+                success: function (data) {
+                    self.hideLoading();
+                    if (data.error) {
+
+                        return
                     }
+                    if (data.user) {
+                        data.user.token=data.token;
+                        data.user.nick_name=data.nick_name;
+                        data.user.avatar=data.avatar;
+                        data.user.pwd=self.getCurrentUser().pwd;
+                        self.setLoginStatus({isLogin: true,user: data.user,token:data.token});
+
+                        Lizard.goTo("personal.html");
+
+                    }
+
                 },
                 error: function (e) {
                     self.hideLoading();

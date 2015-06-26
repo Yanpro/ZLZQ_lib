@@ -104,7 +104,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
 
             $("#headerview").hide();
             $("#main").css("padding","0");
-            self.$el.html(TplHouse);
+            //self.$el.html(TplHouse);
             self.hideLoading();
 
 
