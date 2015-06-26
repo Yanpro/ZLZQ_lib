@@ -24,8 +24,7 @@
         background: #ff6c10;
         top: 0
     }
-
-    .disable_text_highlighting {
+.disable_text_highlighting {
         -webkit-touch-callout: none;
         -webkit-user-select: none; /* Webkit */
         -moz-user-select: none; /* Firefox */
@@ -34,6 +33,7 @@
         -o-user-select: none;
         user-select: none;
     }
+    .content{ font-size: 18px;text-align: center;margin-top:10px; }
 </style>
 <div class="searchBar">
     <div class="searchBar-inner">
@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<div class="filter-bar">
+<!--<div class="filter-bar">
     <ul class="filter-list">
         <li data-key="area"><span>区域<i class="filter-icon selected"></i></span></li>
         <li data-key="sort"><span>排序<i class="filter-icon"></i></span></li>
@@ -147,10 +147,10 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 <div class="mask"></div>
-
+<%if(list!=""){%>
 <ul class="house-list">
     <%_.each(list, function(v,i){ %>
     <li data-id="<%=v.id%>">
@@ -229,7 +229,11 @@
         </a>
     </li>-->
 </ul>
-
+<%}else{ %>
+<div class="content" >
+    <h2>对不起未找到相关信息!</h2>
+</div>
+<%}%>
 <div class="bottom-bar">
     <ul>
         <li class="rent">

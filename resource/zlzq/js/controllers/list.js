@@ -45,6 +45,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             currentBox.find(".sort-bar").removeClass("show");
             currentBox.hide();
             self.$el.find(".mask").hide();
+			
+            document.removeEventListener('touchmove', self.preventDefault, false);
         },
         setTypeFilter:function(e) {
 
@@ -52,6 +54,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             currentBox.find(".type-bar").removeClass("show");
             self.$el.find(".mask").hide();
 
+            document.removeEventListener('touchmove', self.preventDefault, false);
 
 
         },
@@ -72,6 +75,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             currentBox.find(".area-bar").removeClass("show");
             currentBox.hide();
             self.$el.find(".mask").hide();
+			
+			
         },
         setHouseType:function(e) {
             self.$el.find(".house-type>li div").each(function () {
@@ -254,11 +259,11 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
             self.rangeIcon = self.$el.find(".range-icon");
 
-            self.range = new cRange("rangeBar");
+            //self.range = new cRange("rangeBar");
 
 
             this.scrollOpts = {};
-            this.scrollOpts.wrapper = this.$(".right-column"), this.scrollOpts.scroller = this.$(".right-column-inner"), this.scroll = new cUIScroll(this.scrollOpts);
+           // this.scrollOpts.wrapper = this.$(".right-column"), this.scrollOpts.scroller = this.$(".right-column-inner"), this.scroll = new cUIScroll(this.scrollOpts);
         },
 
         setHeader: function (type) {
@@ -284,6 +289,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
         },
         onHide: function () {
             $("#headerview").show();
+			  document.removeEventListener('touchmove', self.preventDefault, false);
+
         }
     });
 

@@ -1015,7 +1015,7 @@ background-position: 0 -410px;
   color: #fff;
   top: 10px;
   text-align: center;
-  border-radius: 8px;
+  border-radius:12px;
   right: 10px;
 }
 /*.house-list li .state{clear:both; position: relative; float: right; margin-right: 8px;}*/

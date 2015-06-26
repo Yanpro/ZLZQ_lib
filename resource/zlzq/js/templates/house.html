@@ -298,7 +298,7 @@
  <div class="housing" >
      <div class="house_intro">
          <p class="house_title">益田花园一期</p>
-         <p class="house_highlight"><span class="house-big">5800</span>元/月</p>
+         <p class="house_highlight"><span class="house-big"><%=realty.price%></span>元/月</p>
          <p class="house_tip">发布时间：&nbsp;<%=realty.published_at%></p>
          <p class="house_tip">联系方式：&nbsp;<a href="tel:<%=realty.owner.cell%>"><%=realty.owner.cell%></a></p>
 
@@ -338,7 +338,7 @@
          <span class="info_name">楼层</span>
          <span><%=realty.floor%></span>
      </li>
-     <li class="info_labels">
+     <!--<li class="info_labels">
          <div class="info_label_item"><i class="icon icon-web"></i>宽带</div>
          <div class="info_label_item"><i class="icon icon-tv"></i>电视</div>
          <div class="info_label_item"><i class="icon icon-sofa"></i>沙发</div>
@@ -349,7 +349,7 @@
          <div class="info_label_item"><i class="icon icon-fridge"></i>冰箱</div>
          <div class="info_label_item"><i class="icon icon-shower"></i>淋浴</div>
          <div class="info_label_item"><i class="icon icon-heater"></i>暖气</div>
-     </li>
+     </li>-->
  </ul>
 
 <!--<ul class="info_list info_ct">

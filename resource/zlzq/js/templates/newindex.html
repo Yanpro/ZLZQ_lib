@@ -1,0 +1,213 @@
+<style type="text/css">
+    /*.cm-header,.cm-header .cm-header-btn{*/
+        /*background-color:transparent;*/
+    /*}*/
+    /*.cm-header .cm-header-btn:active{*/
+        /*background-color: transparent;*/
+    /*}*/
+
+    .house_slider{
+        height: 120px;
+    }
+
+    /*.house_collect .icon_collect{
+        display: block;
+        margin:  0 auto;
+        width: 30px;
+        height: 25px;
+        background:url(./resource/zlzq/images/icon_collect_un.png) no-repeat center;
+        background-size: 30px 25px;;
+    }
+    .house_collect.on .icon_collect{
+        background:url(./resource/zlzq/images/icon_collect.png) no-repeat center;
+        background-size: 30px 25px;;
+    }
+    .housing .btn {
+        position: absolute;
+        right: 5px;
+        top: 10px;;
+        background-color: #E8BD35;
+        color: #fff;
+        border-radius: 3px;;
+        padding: 10px 10px 10px 20px;
+        box-sizing: border-box;
+        display: inline-block
+    }*/
+    .info_list{
+        padding:5px 15px;
+
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    .info_list >li {
+        position: relative;
+        height: 44px;
+        line-height: 44px;
+        font-size: 15px;
+
+    }
+    .info_list >li:first-child{
+        border-top:none;
+    }
+    .house_info_list.info_list >li{
+        display: block;
+        float:left;
+        width:20%;
+        border:none;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    /*.house_info_list.info_list .info_name{
+        margin-right:30px;
+        color:#999;
+    }*/
+    .info_list >li.info_labels{
+        margin-top: 10px;
+
+        height:auto;
+        text-align:center;
+        width: 100%;
+
+    }
+    .info_labels .info_label_item{
+        float:left;
+        width: 33.3%;;
+
+    }
+    /*.info_label_item.info_un{
+        color:#999;
+        text-decoration: line-through;
+    }*/
+    .info_label_item.info_un i{
+        opacity:0.5;
+    }
+
+    .info_labels .info_label_item i{
+
+        margin-right:5px;
+        vertical-align:middle;
+        width: 18px;
+        height:18px;
+        background-image: url(./resource/zlzq/images/icon-house.png);
+        background-repeat: no-repeat;
+        background-size:180px 18px;
+    }
+    /*.info_label_item .icon-web{
+        background-position: 0 0;
+    }
+    .info_label_item .icon-tv{
+        background-position: -18px 0;
+    }
+    .info_label_item .icon-sofa{
+        background-position: -36px 0;
+    }
+    .info_label_item .icon-wash{
+        background-position: -54px 0;
+    }
+    .info_label_item .icon-aircon{
+        background-position: -72px 0;
+    }
+    .info_label_item .icon-bed{
+        background-position: -90px 0;
+    }
+    .info_label_item .icon-board{
+        background-position: -108px 0;
+    }
+    .info_label_item .icon-fridge{
+        background-position: -126px 0;
+    }
+    .info_label_item .icon-shower{
+        background-position: -144px 0;
+    }
+    .info_label_item .icon-heater{
+        background-position: -162px 0;
+    }*/
+
+
+
+   /* .info_btnarea .btn{
+        display: block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        font-size:18px;
+        background-color: #ff6600;
+        border-radius:5px;
+    }
+    .info_btnarea .btn.grey{
+        background-color: #9A9DA4;
+    }
+    .info_list >li.info-comment{
+        padding: 20px 0;
+        height: auto;;
+    }
+    .info-comment .radiu-avatar{
+        position: absolute;
+        left: 5px;
+        top: 24px;
+        width: 36px;
+        height: 36px;
+        border-radius: 36px;
+        overflow: hidden;
+    }
+
+    .reserve .btn {
+        background-color: #E8BD35;
+        color: #fff;
+        border-radius: 3px;;
+        padding: 10px 10px 10px 20px;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 14px;;
+    }*/
+
+</style>
+<div class="searchBar">
+    <div class="searchBar-inner">
+
+    </div>
+</div>
+<div class="house_slider">
+</div>
+
+
+ <ul class="info_list info_ct house_info_list">
+
+     <li class="info_labels">
+         <div class="info_label_item"> <img class="myhouse" style="width: 70px;height: 70px;" src="./resource/zlzq/images/myhouse.png"><div>我的租房</div></div>
+         <div class="info_label_item"><img style="width: 70px;height: 70px;" src="./resource/zlzq/images/uploadhouse.png"><div>上传房源</div></div>
+         <div class="info_label_item"><img style="width: 70px;height: 70px;" src="./resource/zlzq/images/decorate.png"><div>装修</div></div>
+         <div class="info_label_item"><img style="width: 70px;height: 70px;" src="./resource/zlzq/images/favourite.png"><div>我关注的</div></div>
+         <div class="info_label_item"><img style="width: 70px;height: 70px;" src="./resource/zlzq/images/more.png"><div>更多</div></div>
+     </li>
+ </ul>
+<div class="bottom-bar">
+    <ul>
+        <li class="rent">
+            <i class="b-icon r-icon active"></i>
+            <span>租房</span>
+        </li>
+        <li class="order">
+            <i class="b-icon o-icon"></i>
+            <span>约看清单</span>
+        </li>
+        <!--<li class="schedule">
+            <i class="b-icon c-icon"></i>
+            <span>看房日程</span>
+        </li>-->
+        <li class="mine">
+            <i class="b-icon i-icon"></i>
+            <span>我的</span>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
