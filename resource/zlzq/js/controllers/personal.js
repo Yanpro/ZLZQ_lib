@@ -6,12 +6,12 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             "click .housing .btn":"toReserve",
             "click .location_icon" :"toLocation",
             "click .search-btn":"toSearch",
-            //"click .personal .opt-list .name":"toUpdateName",
+            "click .personal .opt-list .name":"toUpdateName",
+            "click #confirm-btn":"ensureName",
             /*"click .personal .opt-list .gender":"toUpdateGender",*/
             "click .personal .opt-list .pwd":"toUpdatePwd",
             //"click .personal .opt-list .tel":"toUpdateTel",
             "click .gender-box div":"selectGender",
-
             "click .loginout": "loginout",
             //"click .pwd_box .g_btn_s": "modifyPwd"
         },
@@ -114,6 +114,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             });
 
         },
+
+
         selectGender:function(e){
             var target=$(e.currentTarget);
             self.$el.find(".gender-box div").each(function(){
@@ -147,7 +149,6 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                     }
                 }
             });
-
         },
 
 
@@ -200,12 +201,34 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                         self.setHeader();
                     },
                     commitHandler: function () {
-
                     }
                 }
             });
-
         },
+        //
+        ensureName:function(){
+            var upname=self.$el.find(".name-box .name").val();
+            self.showLoading();
+            var url = "http://zlzq.easybird.cn/api/v1/renter/" + user.id;
+            $.ajax({
+                url: url,
+                type: "PUT",
+                dataType: "json",
+                data:{"renter[nick_name]":""},
+                success: function (data) {
+                    self.hideLoading();
+                    if (data.success) {
+                        self.setLoginStatus({});
+                        Lizard.goTo("login.html");
+                    }
+                },
+                error: function (e) {
+                    self.hideLoading();
+                    self.showMyToast("服务器异常", 1000);
+                }
+            });
+        },
+
         selectDate:function(e){
             self.dateScroller.show();
         },
