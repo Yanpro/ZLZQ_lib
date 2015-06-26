@@ -1,5 +1,6 @@
 define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplRegister"], function (BaseView, cUIInputClear, Model, Store, TplRegister) {
     var self;
+    var time1=0;
     var View = BaseView.extend({
             ViewName: 'register',
             events: {
@@ -35,6 +36,14 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplRegister"], func
                 this.showMyToast("请输入正确的手机号", 1000);
                 return;
             }
+
+            var time2=new Date().getTime();
+            var time3=time2-time1;
+            var time4=60-parseInt(time3/1000);
+            if(time3<60000&&time3!=0){
+                self.showMyToast("请"+time4+"秒后再获取短信", 1000);
+                return;
+            }
             self.showLoading();
             var url = "http://zlzq.easybird.cn/api/v1/users/generate_verification_code";
             $.ajax({
@@ -44,15 +53,8 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplRegister"], func
                 data: {cell: mobile},
                 success: function (data) {
                     self.hideLoading();
-                    //if (data.error) {
-                    //    self.showMyToast("用户名或密码错误！", 1000);
-                    //    return
-                    //}
-                    //if (data.user) {
-                    //    data.user.token = data.token;
-                    //    self.setLoginStatus({isLogin: true, user: data.user, token: data.token});
-                    //    Lizard.goTo("index.html");
-                    //}
+                    time1=new Date().getTime();
+                    self.showMyToast("短信已发送", 1000);
 
                 },
                 error: function (e) {
@@ -60,6 +62,8 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplRegister"], func
                     self.showMyToast("服务器异常", 1000);
                 }
             });
+            //
+
         },
             toLogin:function(e){
                 Lizard.goTo("login.html");

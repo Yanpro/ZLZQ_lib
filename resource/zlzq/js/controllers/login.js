@@ -1,5 +1,6 @@
 define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], function (BaseView, cUIInputClear, Model, Store, TplLogin) {
     var self;
+    var time1=0;
     var View = BaseView.extend({
             ViewName: 'source',
             events: {
@@ -35,6 +36,13 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                     this.showMyToast("请输入正确的手机号", 1000);
                     return;
                 }
+                var time2=new Date().getTime();
+                var time3=time2-time1;
+                var time4=60-parseInt(time3/1000);
+                if(time3<60000&&time3!=0){
+                    self.showMyToast("请"+time4+"秒后再获取短信", 1000);
+                    return;
+                }
                 this.showLoading();
                 var url = "http://zlzq.easybird.cn/api/v1/users/reset_password";
                 $.ajax({
@@ -43,7 +51,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                     type: "post",
                     data: {cell: mobile},
                     success: function (data) {
-
+                        time1=new Date().getTime();
                         self.showMyToast("新密码已经以短信的形式发送你手机！", 3000);
                         //Lizard.goTo("login.html");
                         //self.setGetPwdHeader();
