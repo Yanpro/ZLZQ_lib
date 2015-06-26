@@ -1,13 +1,9 @@
-<style type="text/css">
-.content{ font-size: 18px;text-align: center;margin-top:10px; }
-</style>
 <div class="searchBar">
     <div class="searchBar-inner">
 
     </div>
 </div>
 <div class="mask"></div>
-<%if(list!=""){%>
 <ul class="house-list">
     <%_.each(list, function(v,i){ %>
     <li data-id="<%=v.id%>">
@@ -31,16 +27,12 @@
     <%})%>
 
 </ul>
-<%}else{ %>
-<div class="content" >
-    <h2>对不起!你还没有订单消息</h2>
-</div>
-<%}%>
+
 <div class="bottom-bar">
     <ul>
         <li class="rent">
             <i class="b-icon r-icon "></i>
-            <span>租房</span>
+            <span>首页</span>
         </li>
         <li class="order">
             <i class="b-icon o-icon"></i>
