@@ -20,11 +20,12 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
 
         },
 
+        //点收藏跳到’登入‘
         toFavourite:function(e){
             var isLogin = self.isLogin();
             if (!isLogin) {
-
-                self.showMyToast("请先登录", 2000);
+                Lizard.goTo("login.html");
+                //self.showMyToast("请先登录", 2000);
                 return;
             }
 

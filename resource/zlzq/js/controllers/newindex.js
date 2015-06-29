@@ -9,7 +9,24 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             "click .bottom-bar .mine":"toPersonal",
             "click .bottom-bar .order":"toOrder",
             "click .info_label_item1 .myhouse":"myHouse",
+            "click .info_label_item1 .favourite":"toMyFavourite",
 
+        },
+
+        //隐藏'更多'
+        hide1:function(){
+            $("#more").hide();
+        },
+
+        //点击'我关注的'
+        toMyFavourite:function(){
+            var isLogin = self.isLogin();
+            if (!isLogin) {
+                Lizard.goTo("login.html");
+                //self.showMyToast("请先登录", 2000);
+                return;
+            }
+            Lizard.goTo("list.html?favorite=1");
         },
 
         myHouse:function(e){
