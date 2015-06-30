@@ -301,11 +301,11 @@
 
          <p class="house_highlight"> <%if(realty.price!=null){%><span class="house-big"><%=realty.price%></span><%}%>元/月</p>
 
-         <p class="house_tip">发布时间：
-             <%if(realty.price!=null){%>
-                &nbsp;<%=realty.published_at%>
-             <%}%>
-         </p>
+         <!--<p class="house_tip">发布时间：-->
+             <!--<%if(realty.price!=null){%>-->
+                <!--&nbsp;<%=realty.published_at%>-->
+             <!--<%}%>-->
+         <!--</p>-->
 
          <p class="house_tip">联系方式：&nbsp;<a href="tel:<%=realty.owner.cell%>"><img src="./resource/zlzq/images/tel.png" style="width: 30px;height: 26px;margin-left: 10px;"></a></p>
 
@@ -358,6 +358,41 @@
          <span><%=realty.floor%></span>
          <%}%>
      </li>
+     <li>
+         <span class="info_name">总楼层</span>
+         <%if(realty.total_height!=null){%>
+         <span><%=realty.total_height%></span>
+         <%}%>
+     </li>
+     <li>
+         <span class="info_name">发布时间</span>
+         <%if(realty.created_at!=null){%>
+         <span><%=realty.created_at%></span>
+         <%}%>
+     </li>
+     <li>
+         <span class="info_name">更新时间</span>
+         <%if(realty.updated_at!=null){%>
+         <span><%=realty.updated_at%></span>
+         <%}%>
+     </li>
+ </ul>
+ <ul class="info_list info_ct house_info_list">
+     <li>
+         <span class="info_name">配套设施</span>
+         <%if(realty.house_device_id!=null){%>
+         <span><%=realty.house_device_id%></span>
+         <%}%>
+     </li>
+ </ul>
+ <ul class="info_list info_ct house_info_list">
+     <li>
+         <span class="info_name">房源描述</span>
+         <%if(realty.description!=null){%>
+         <span><%=realty.description%></span>
+         <%}%>
+     </li>
+ </ul>
      <!--<li class="info_labels">
          <div class="info_label_item"><i class="icon icon-web"></i>宽带</div>
          <div class="info_label_item"><i class="icon icon-tv"></i>电视</div>
@@ -370,7 +405,7 @@
          <div class="info_label_item"><i class="icon icon-shower"></i>淋浴</div>
          <div class="info_label_item"><i class="icon icon-heater"></i>暖气</div>
      </li>-->
- </ul>
+
 
 <!--<ul class="info_list info_ct">
     <li>租客评论（3）<i class="icon-right"></i></li>

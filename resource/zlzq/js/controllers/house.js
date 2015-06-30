@@ -16,8 +16,10 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
         toMyorder:function(){
             if(self.isLogin()){
                 Lizard.goTo("myorder.html?realtyid="+Lizard.P("d"));
-            }else self.showMyToast("不好意思！请先登录！",2000)
-
+            }else {
+                Lizard.goTo("login.html");
+                return;
+            }
         },
 
         //点收藏跳到’登入‘
