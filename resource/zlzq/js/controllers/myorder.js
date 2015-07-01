@@ -3,8 +3,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
     var View = BaseView.extend({
         ViewName: 'comment',
         events: {
-            "click .timeS" :"selectDate",
-            "click .timeE" :"selectDate",
+            "click .timeS-mask" :"selectDate",
+            "click .timeE-mask" :"selectDate",
             "click .years" :"years",
             "click .phone" :"phone",
 
@@ -12,7 +12,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
 
         selectDate:function(e){
             self.dateScroller.show();
-            self.currentDateBox=$(e.currentTarget);
+            self.currentDateBox=$(e.currentTarget).parent().find("input");
 
         },
         toReserve:function(e){
@@ -108,8 +108,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                     e.reload(t.days), e.setIndex(0)
                 }],
                 onOkAction: function (item) {
-                    self.currentDateBox.val(item[0].key+"-"+item[1].key+"-"+item[2].key);
-
+                   self.currentDateBox && self.currentDateBox.val(item[0].key+"-"+item[1].key+"-"+item[2].key);
                     this.hide()
                 },
                 onCancelAction: function () {
