@@ -1002,7 +1002,7 @@ background-position: 0 -410px;
 
 .house-list{ padding-bottom: 20px; border-top: 1px solid #e4e4e4; background: #fff;}
 .house-list h1{ padding: 0 10px; line-height: 44px; font-size: 16px; border-bottom: 1px solid #e4e4e4;}
-.house-list ul{ margin: 0 8px;}
+.house-list ul{ margin: 0 0 0 8px;}
 .house-list li{ border-bottom: 1px solid #e4e4e4; padding: 10px 0 10px 20px;margin:0 auto;}
 .house-list li:last-child{ border-bottom: none;}
 .house-list li > a{ display: block; padding: 8px 0; color: #000; overflow: hidden; *zoom:1;}
@@ -1024,7 +1024,7 @@ background-position: 0 -410px;
 .house-list li h3{ font-size: 18px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; line-height: 20px;color: #EAC447}
 .house-list li .monthly em{ font-size: 18px;}
 .txt{ padding-left: 10px; position: relative}
-.txt p{line-height: 30px;color: #898a8b}
+.txt p{line-height: 20px;color: #898a8b}
 .house-list li .monthly{line-height: 30px;color: #ff6c10 }
 .txt p.addr{ color: #898a8b;font-weight: 600;}
 

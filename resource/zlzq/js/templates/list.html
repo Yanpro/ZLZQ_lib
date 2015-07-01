@@ -54,7 +54,8 @@
     </div>
 </div>
 
-<!--<div class="filter-bar">
+<!--搜索-->
+<div class="filter-bar">
     <ul class="filter-list">
         <li data-key="area"><span>区域<i class="filter-icon selected"></i></span></li>
         <li data-key="sort"><span>排序<i class="filter-icon"></i></span></li>
@@ -148,8 +149,9 @@
             </div>
         </div>
     </div>
-</div>-->
+</div>
 
+<!--房屋列表-->
 <div class="mask"></div>
 <%if(list!=""){%>
 <ul class="house-list">
@@ -164,7 +166,11 @@
 
                 <p><%=v.title%>&nbsp;&nbsp;|&nbsp;&nbsp;<%=v.area%>m<sup>2</sup></p>
 
-                <p class="addr"><%=v.address%>&nbsp;&nbsp;30号楼</p>
+                <p class="addr">地址:<%=v.address%>&nbsp;&nbsp;</p>
+                <p class="">发布时间:<%=left(v.created_at,10)%>&nbsp;&nbsp;</p>
+                <p class="">更新时间:<%=left(v.updated_at,10)%>&nbsp;&nbsp;</p>
+                <p class="">房源性质:<%=v.realty_type%>&nbsp;&nbsp;</p>
+                <p class="">配套设施:<%=v.house_device_id%>&nbsp;&nbsp;</p>
             </div>
         </a>
     </li>

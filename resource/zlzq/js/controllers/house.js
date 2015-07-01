@@ -7,7 +7,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             "click .housing .btn":"toReserve",
             "click .location_icon" :"toLocation",
             "click .search-btn":"toSearch",
-            "click .info_list li:first-child":"toComment",
+            //"click .info_list li:first-child":"toComment",
             "click .house_icon":"toFavourite",
             //"click .info_btnarea":"toFavourite"
             "click .info_btnarea .btn":"toMyorder"
@@ -64,9 +64,9 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
                 }
             });
         },
-        toComment:function(e){
-            Lizard.goTo("comment.html");
-        },
+        //toComment:function(e){
+        //    Lizard.goTo("comment.html");
+        //},
         toReserve:function(e){
             self.$el.find(".info_ct").hide();
             self.$el.find(".housing").hide();

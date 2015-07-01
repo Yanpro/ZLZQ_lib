@@ -297,7 +297,10 @@
 </div>
  <div class="housing" >
      <div class="house_intro">
-         <p class="house_title">益田花园一期</p>
+         <%if(realty.title!=null){%>
+         <p class="house_title"><%=realty.title%></p>
+         <%}%>
+
 
          <p class="house_highlight"> <%if(realty.price!=null){%><span class="house-big"><%=realty.price%></span><%}%>元/月</p>
 
@@ -319,8 +322,14 @@
  <ul class="info_list info_ct house_info_list">
      <li>
          <span class="info_name">户型</span>
-         <%if(realty.title!=null){%>
-           <span><%=realty.title%></span>
+         <%if(realty.room!=null){%>
+           <span><%=realty.room%>室</span>
+         <%}%>
+         <%if(realty.hall!=null){%>
+         <span><%=realty.hall%>厅</span>
+         <%}%>
+         <%if(realty.wash!=null){%>
+         <span><%=realty.hall%>卫</span>
          <%}%>
      </li>
      <li>
