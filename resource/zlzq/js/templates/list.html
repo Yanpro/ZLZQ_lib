@@ -167,74 +167,15 @@
                 <p><%=v.title%>&nbsp;&nbsp;|&nbsp;&nbsp;<%=v.area%>m<sup>2</sup></p>
 
                 <p class="addr">地址:<%=v.address%>&nbsp;&nbsp;</p>
-                <p class="">发布时间:<%=left(v.created_at,10)%>&nbsp;&nbsp;</p>
-                <p class="">更新时间:<%=left(v.updated_at,10)%>&nbsp;&nbsp;</p>
+                <p class="">发布时间:<%=v.created_at.substring(0,10)%>&nbsp;&nbsp;</p>
+                <p class="">更新时间:<%=v.updated_at.substring(0,10)%>&nbsp;&nbsp;</p>
                 <p class="">房源性质:<%=v.realty_type%>&nbsp;&nbsp;</p>
                 <p class="">配套设施:<%=v.house_device_id%>&nbsp;&nbsp;</p>
             </div>
         </a>
     </li>
     <%})%>
-    <!--<li>
-        <div>
-            <div class="img">
-                <img src="./resource/zlzq/images/house.jpg">
-            </div>
-            <div class="txt">
-                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
-                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
-                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
-            </div>
-        </div>
-    </li>
-    <li>
-        <a>
-            <div class="img">
-                <img src="./resource/zlzq/images/house.jpg">
-            </div>
-            <div class="txt">
-                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
-                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
-                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
-            </div>
-        </a>
-    </li>
-    <li>
-        <a>
-            <div class="img">
-                <img src="./resource/zlzq/images/house.jpg">
-            </div>
-            <div class="txt">
-                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
-                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
-                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
-            </div>
-        </a>
-    </li>
-    <li>
-        <a>
-            <div class="img">
-                <img src="./resource/zlzq/images/house.jpg">
-            </div>
-            <div class="txt">
-                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
-                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
-                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
-            </div>
-        </a>
-    </li>
-    <li>
-        <a>
-            <div class="img">
-                <img src="./resource/zlzq/images/house.jpg">
-            </div>
-            <div class="txt">
-                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
-                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
-                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
-            </div>
-        </a>
-    </li>-->
+
 </ul>
 <%}else{ %>
 <div class="content" >

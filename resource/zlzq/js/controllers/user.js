@@ -66,7 +66,6 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             $("#headerview").hide();
             self.$el.html(_.template(tplUser)({user: this.getCurrentUser()}));
 
-
             self.hideLoading();
 
         },

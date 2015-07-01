@@ -13,14 +13,36 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             //"click .personal .opt-list .tel":"toUpdateTel",
             "click .gender-box div":"selectGender",
             "click .loginout": "loginout",
+            "click .avatar-box ":"modifyPic",
+            "click  .pic-box .cancel":"cancelEditing",
+            "change .choose-box input":"readFile"
             //"click .pwd_box .g_btn_s": "modifyPwd"
         },
         toUpdateTel:function() {
             self.$el.find(".personal").addClass("tel-active");
             self.setTelHeader();
         },
+        readFile:function(e){
+            var self=this,
+                file = e.currentTarget.files[0];
+            if(!/image\/\w+/.test(file.type)){
+                alert("请确保文件为图像类型");
+                return false;
+            }
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(e) {
+                //self.$el.find(".avatar")[0].src = this.result;
+                self.cancelEditing();
+            }
 
-
+        },
+        cancelEditing:function(e){
+            this.$el.find(".pic-box").hide();
+        },
+        modifyPic:function(e){
+            this.$el.find(".pic-box").show();
+        },
         loginout: function (e) {
             var user = self.getCurrentUser();
             self.showLoading();
@@ -281,7 +303,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         },
         onShow: function () {
             self.setHeader();
-            self.$el.html(_.template(tplPersonal)({user: this.getCurrentUser()}));
+           // self.$el.html(_.template(tplPersonal)({user: this.getCurrentUser()}));
+            self.$el.html(_.template(tplPersonal)({user: {nick_name:"123",cell:"18915296556"}}));
             self.hideLoading();
 
         },

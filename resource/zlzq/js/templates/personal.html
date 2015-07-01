@@ -1,9 +1,9 @@
 <div class="personal">
     <div class="info-box">
-     <div class="avatar-box" type="file" accept="image/*;capture=camera">
+     <div class="avatar-box">
          头像
          <div>
-             <img  class="avatar" src="<%=user.avatar.avatar.url%>">
+             <img  class="avatar" src="">
          </div>
          <i class="arrow"></i>
          <input type="hidden" accept="image/*;capture=camera">
@@ -66,13 +66,18 @@
                 </div>
             </li>
         </ul>
-       <!-- <div class="btn_box">
-            <button class="g_btn_s" >确认</button>
-        </div>-->
+    </div>
+
+    <div class="pic-box" style="display: none">
+        <div style="position: fixed;top: 0;bottom: 0;   background-color: rgba(0, 0, 0, 0.7);  width: 100%"></div>
+        <div  class="menu" >
+            <ul>
+                <li>拍照</li>
+                <li class="choose-box">从相册中选择<input type="file"  accept="image/*" ></li>
+                <li class="cancel">取消</li>
+            </ul>
+        </div>
     </div>
 </div>
-    <!--<div class="gender-box">
-        <div class="selected">女 <i class="right-icon"></i></div>
-        <div>男<i class="right-icon"></i></div>
-    </div>-->
-</div>
+
+

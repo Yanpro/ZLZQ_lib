@@ -152,9 +152,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                 self.showLoading();
 
                 self.hideLoading();
-
-                console.log(this.isLogin())
-                this.$el.find("#password").value("");
+                this.$el.find("#password").val("");
                 //this.$el.find("#username").value("");
             },
             //设置标题
