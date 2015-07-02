@@ -66,7 +66,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                 return;
             }
             this.showLoading();
-            var url = "http://zlzq.easybird.cn/api/v1/orders";
+            var url = Lizard.host+"api/v1/orders";
             $.ajax({
                 url: url,
                 dataType: "json",

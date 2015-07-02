@@ -37,7 +37,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
 
         },
         getList:function(callback){
-            var url="http://zlzq.easybird.cn/api/v1/users/44/my_orders?auth_token=-xpii7D1bro3BqQQpqS_",
+            var url=Lizard.host+"api/v1/users/44/my_orders?auth_token=-xpii7D1bro3BqQQpqS_",
                 paras={},
                 method="get";
             if(Lizard.P("favorite")){

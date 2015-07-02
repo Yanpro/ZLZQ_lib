@@ -187,7 +187,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
         },
         getDistricts:function(callback){
             $.ajax({
-                url: 'http://zlzq.easybird.cn/api/v1/districts',
+                url: Lizard.host+'api/v1/districts',
                 dataType: "json",
                 contentType: "application/json",
                 type: "get",
@@ -207,7 +207,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
         },
         getList:function(callback){
-            var url="http://zlzq.easybird.cn/api/v1/realties/",
+            var url=Lizard.host+"api/v1/realties/",
                 paras={},
                 method="get";
             if(Lizard.P("favorite")){
@@ -220,7 +220,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 paras.target=decodeURIComponent(Lizard.P("addr"));
             }
             if(Lizard.P("order")){
-                    url="http://zlzq.easybird.cn/api/v1/users/"+self.getCurrentUser().id+"/my_orders?auth_token="+self.getCurrentUser().token,
+                    url=Lizard.host+"api/v1/users/"+self.getCurrentUser().id+"/my_orders?auth_token="+self.getCurrentUser().token,
                     paras={},
                     method="get";
 

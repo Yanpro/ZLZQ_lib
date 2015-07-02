@@ -27,7 +27,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
         },
         getList:function(callback){
-            var url="http://zlzq.easybird.cn/api/v1/users/"+self.getCurrentUser().id+"/my_orders?auth_token="+self.getCurrentUser().token,
+            var url=Lizard.host+"api/v1/users/"+self.getCurrentUser().id+"/my_orders?auth_token="+self.getCurrentUser().token,
                 paras={},
                 method="get";
             var orderDate=new Array(2);

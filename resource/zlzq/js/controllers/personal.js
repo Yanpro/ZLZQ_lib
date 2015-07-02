@@ -62,7 +62,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         loginout: function (e) {
             var user = self.getCurrentUser();
             self.showLoading();
-            var url = "http://zlzq.easybird.cn/api/v1/users/" + user.id;
+            var url = Lizard.host+"api/v1/users/" + user.id;
             $.ajax({
                 url: url,
                 type: "DELETE",
@@ -106,7 +106,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             }
             var user = self.getCurrentUser();
             self.showLoading();
-            var url = "http://zlzq.easybird.cn/api/v1/users/" + user.id;
+            var url = Lizard.host+"api/v1/users/" + user.id;
             $.ajax({
                 url: url,
                 type: "PUT",
@@ -248,7 +248,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         ensureName:function(){
 
             self.showLoading();
-            var url = "http://zlzq.easybird.cn/api/v1/renters/" +self.getCurrentUser().actor_id;
+            var url = Lizard.host+"api/v1/renters/" +self.getCurrentUser().actor_id;
             $.ajax({
                 url: url,
                 type: "PUT",
@@ -268,7 +268,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         },
 
         login:function(){
-            var url = "http://zlzq.easybird.cn/api/v1/users/login";
+            var url = Lizard.host+"api/v1/users/login";
             $.ajax({
                 url: url,
                 dataType: "json",

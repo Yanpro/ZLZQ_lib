@@ -45,7 +45,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplRegister"], func
                 return;
             }
             self.showLoading();
-            var url = "http://zlzq.easybird.cn/api/v1/users/generate_verification_code";
+            var url = Lizard.host+"api/v1/users/generate_verification_code";
             $.ajax({
                 url: url,
                 dataType: "json",
@@ -110,7 +110,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplRegister"], func
                 }
 
                 this.showLoading();
-                var url = "http://zlzq.easybird.cn/api/v1/users";
+                var url = Lizard.host+"api/v1/users";
                 $.ajax({
                     url: url,
                     dataType: "json",

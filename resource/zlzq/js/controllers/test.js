@@ -175,7 +175,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
         },
         getList:function(callback){
-            var url="http://zlzq.easybird.cn/api/v1/realties/";
+            var url=Lizard.host+"api/v1/realties/";
             if(Lizard.P("favorite")){
                 url=url+"/favors"
             }
