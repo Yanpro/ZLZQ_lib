@@ -36,6 +36,7 @@
     }
     .content{ font-size: 18px;text-align: center;margin-top:10px; }
 </style>
+<!--页头-->
 <div class="searchBar">
     <div class="searchBar-inner">
         <div class="l-bar">
@@ -55,7 +56,7 @@
 </div>
 
 <!--搜索-->
-<div class="filter-bar">
+<div class="filter-bar" style="position: relative;z-index: 3;  margin-top: -5px;">
     <ul class="filter-list">
         <li data-key="area"><span>区域<i class="filter-icon selected"></i></span></li>
         <li data-key="sort"><span>排序<i class="filter-icon"></i></span></li>
@@ -63,7 +64,8 @@
     </ul>
 </div>
 
-<div class="type-bar-box">
+
+<div class="type-bar-box ">
     <div>
         <div class="type-bar">
             <div class="control">
@@ -102,51 +104,29 @@
         </div>
     </div>
 </div>
-<div class="sort-bar-box">
+<div class="sort-bar-box ">
     <div class="sort-bar">
         <ul class="sort-list">
             <li class="active">默认排序</li>
-            <li>租金高由高到底</li>
-            <li>租金高由底到高</li>
-            <li>按发布时间排序</li>
+            <li>租金由高到底</li>
+            <li>租金由底到高</li>
+            <li>按发布时间</li>
         </ul>
     </div>
 </div>
-<div class="area-bar-box">
+<div class="area-bar-box ">
     <div class="area-bar">
         <div class="left-column">
             <ul style="height: auto; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; -webkit-transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
-                <li data-type="d" class="new">黄埔区</li>
-                <li data-type="l" class="current new">静安区</li>
-                <li data-type="dc" class="">徐汇区</li>
-                <li data-type="dc" class="">长宁区</li>
-                <li data-type="dc" class="">虹口区</li>
-                <li data-type="dc" class="">杨浦区</li>
-                <li data-type="dc" class="">浦东区</li>
-
                 <%_.each(dlist, function(v,i){ %>
                 <li data-id="<%=v.id%>">
                     <a>
                         <p><%=v.title%></p>
-
                     </a>
                 </li>
                 <%})%>
 
             </ul>
-        </div>
-        &lt;!&ndash;<div style="display: table-cell" class="right-column">
-            <div class="right-column-inner">
-                <ul style="height: auto; ">
-                    <li class="selected" data-key="notset" data-index="0"><strong>不限</strong> <i
-                            class="select_input"></i></li>
-                    <li class="" data-key="2" data-index="1"><strong>上海</strong> <i class="select_input"></i></li>
-                    <li class="" data-key="6" data-index="2"><strong>大连</strong> <i class="select_input"></i></li>
-                    <li class="" data-key="28" data-index="3"><strong>成都</strong> <i class="select_input"></i></li>
-                    <li class="" data-key="206" data-index="4"><strong>长沙</strong> <i class="select_input"></i></li>
-
-                </ul>
-            </div>
         </div>
     </div>
 </div>

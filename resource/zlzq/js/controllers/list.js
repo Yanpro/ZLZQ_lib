@@ -1,6 +1,5 @@
 define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll","cRange","text!TplList"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,cUIScroll,cRange,TplList) {
-    var self,districtsList,
-         listModel=Model.ListModel.getInstance();
+    var self,districtsList;
     var View = BaseView.extend({
         ViewName: 'list',
         hasTouch :'ontouchstart' in window,
@@ -12,10 +11,6 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             "click .l-ct ": "toIndex",
             "click .house-type>li div":"setHouseType",
             "click .filter-list li": "setFilter",
-           // "touchstart .range-bar": "startRentRange",
-            //"touchmove  .range-icon": "setRentRange",
-            //"touchend   .range-icon": "endRentRange",
-           // "mousedown .range-icon": "startRentRange",
             "click .sort-list li":"setSortFilter",
             "click a.yes":"setTypeFilter",
             "click .right-column li":"setAreaFilter",
@@ -36,34 +31,49 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             self.$el.find(".searchBar-inner").addClass("active");
         },
         setSortFilter:function(e) {
+            var target=$(e.currentTarget);
             self.$el.find(".sort-list li").each(function () {
                 var $this = $(this);
                 $this.removeClass("active");
             });
-            $(e.currentTarget).addClass("active");
+            target.addClass("active");
             var currentBox = self.$el.find(".sort-bar-box");
-            currentBox.find(".sort-bar").removeClass("show");
-            currentBox.hide();
-            self.$el.find(".mask").hide();
-			
+            currentBox.removeClass("in");
+            self.$el.find(".mask").removeClass("show");
             document.removeEventListener('touchmove', self.preventDefault, false);
+
+
+            alert(target.html());
         },
         setTypeFilter:function(e) {
 
             var currentBox = self.$el.find(".type-bar-box");
-            currentBox.find(".type-bar").removeClass("show");
-            self.$el.find(".mask").hide();
-
+            currentBox.removeClass("in");
+            self.$el.find(".mask").removeClass("show");
             document.removeEventListener('touchmove', self.preventDefault, false);
 
+            alert(self.$el.find(".house-type>li div.selected").html());
 
         },
         setDistrictFilter:function(e){
+            var target=$(e.currentTarget);
             self.$el.find(".left-column li").each(function () {
                 var $this = $(this);
                 $this.removeClass("current");
             });
-            $(e.currentTarget).addClass("current");
+            target.addClass("current");
+
+            var currentBox = self.$el.find(".area-bar-box ");
+            currentBox.removeClass("in");
+            self.$el.find(".mask").removeClass("show");
+            document.removeEventListener('touchmove', self.preventDefault, false);
+
+
+            alert(target.data("id") + ":" + target.find("p").html());
+
+
+
+
         },
         setAreaFilter:function(e) {
             self.$el.find(".right-column li").each(function () {
@@ -85,57 +95,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             });
             $(e.currentTarget).addClass("selected");
         },
-        startRentRange:function(e) {
-            e.preventDefault();
-            self.rentRangePoint = self.hasTouch ? e.touches[0] : e;
 
-            $(document).bind("touchmove", self.setRentRange);
-            $(document).bind("touchend", self.endRentRange);
-
-            if ((' ' + e.target.className + ' ').replace(/[\n\t]/g, ' ').indexOf("range-icon") > -1) {
-                return;
-            }
-
-            var rangeX = self.$el.find(".range-bar")[0].getBoundingClientRect().left;
-
-            self.rangeIcon.css("left", self.rentRangePoint.pageX - rangeX);
-            self.rentRangeIcnleft = self.rangeIcon.position().left;
-
-            if (!self.hasTouch) {
-                $(document).bind("mousemove", self.setRentRange);
-            }
-        },
-        setRentRange:function(e) {
-            e.preventDefault();
-            if (!self.rentRangePoint) {
-                return
-            }
-
-
-            var point = self.hasTouch ? e.touches[0] : e,
-                deltaX = point.pageX - self.rentRangePoint.pageX,
-                maxLeft = self.rangeIcon.parent().width() - 20,
-                nextLeft = self.rentRangeIcnleft + deltaX,
-                left = nextLeft > maxLeft ? maxLeft : nextLeft;
-
-
-            console.log(deltaX);
-            left = left < 0 ? 0 : left;
-            self.rangeIcon.css("left", left);
-            self.rentRangeInnerBar.width(left);
-            if (!self.hasTouch) {
-                $(document).bind("mouseup", self.endRentRange);
-            }
-        },
-        endRentRange:function(e){
-            self.rentRangePoint=null;
-            $(document).off("touchmove",self.setRentRange);
-            $(document).off("touchend", this.endRentRange);
-            if (!self.hasTouch) {
-                $(document).unbind("mousemove", self.setRentRange);
-                $(document).unbind("mouseup", self.endRentRange);
-            }
-        },
         toIndex:function(e){
             Lizard.goTo("index.html");
         },
@@ -164,21 +124,20 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 return;
             }
 
-            //if(target.data("key")=="area") {
-            //    this.scroll.refresh();
-            //}
 
-            var lastBox = self.$el.find("." + self.lastFilter + "-bar-box");
-            lastBox.css("visibility", "visible");
-            lastBox.hide();
-            lastBox.find("." + self.lastFilter + "-bar").removeClass("show");
+            if(self.lastFilter && target.data("key")!= self.lastFilter) {
+                var lastBox = self.$el.find("." + self.lastFilter + "-bar-box");
+                 lastBox.removeClass("trans");
+                 lastBox.removeClass("in");
+            }
 
-            currentBox.css("visibility", "visible");
-            currentBox.show();
-            currentBox.find("." + target.data("key") + "-bar").addClass("show");
+            currentBox.addClass("trans").toggleClass("in");
+            if(currentBox.hasClass("in")){
+                self.$el.find(".mask").css("left",0).addClass("show");
+            }else{
+                self.$el.find(".mask").css("left",0).removeClass("show");
+            }
             self.lastFilter = target.data("key");
-            self.$el.find(".mask").show();
-
             document.addEventListener('touchmove', self.preventDefault, false);
 
         },
@@ -192,8 +151,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 contentType: "application/json",
                 type: "get",
                 success: function (data) {
-                    callback && callback(data);
-                    districtsList=data.districts;
+                    callback && callback(data.districts);
                 }
             });
 
@@ -236,8 +194,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 type: method,
                 data:paras,
                 success: function (data) {
-                    self.hideLoading();
-                    self.$el.html(_.template(TplList, {list: data.realties,dlist:districtsList}));
+                    callback && callback(data);
+                   ;
 
                 },
                 error: function (e) {
@@ -248,22 +206,22 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
         },
         onShow: function () {
             $("#headerview").hide();
-            self.getDistricts();
-            self.getList();
-            self.hideLoading();
+            self.getDistricts( function(districts){
+                self.districts=districts;
+                self.getList(function(data){
+                    self.hideLoading();
+                    self.$el.html(_.template(TplList, {list: data.realties,dlist:self.districts}))
+                    self.range = new cRange("rangeBar");
+                    self.$el.find(".mask").addClass("m-trans");
+                    self.$el.find(".mask")[0].addEventListener("webkitTransitionEnd", function () {
+                        var mask=  self.$el.find(".mask");
+                        if(!mask.hasClass("show")) {
+                            self.$el.find(".mask").css("left", 999);
+                        }
+                    },false);
+                });
+            });
 
-            self.rentRange = self.$el.find(".rent-range");
-            self.rentRangeBar = self.$el.find(".range-bar");
-            self.rentRangeInnerBar = self.$el.find(".range-inner-bar");
-
-
-            self.rangeIcon = self.$el.find(".range-icon");
-
-            //self.range = new cRange("rangeBar");
-
-
-            this.scrollOpts = {};
-           // this.scrollOpts.wrapper = this.$(".right-column"), this.scrollOpts.scroller = this.$(".right-column-inner"), this.scroll = new cUIScroll(this.scrollOpts);
         },
 
         setHeader: function (type) {
