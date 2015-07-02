@@ -10,13 +10,10 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             "click .bottom-bar .order":"toOrder",
             "click .info_label_item1 .myhouse":"myHouse",
             "click .info_label_item1 .favourite":"toMyFavourite",
+            "click .info_label_item1 .decorate":"toDecorate",
 
         },
 
-        //隐藏'更多'
-        hide1:function(){
-            $("#more").hide();
-        },
 
         //点击'我关注的'
         toMyFavourite:function(){
@@ -29,8 +26,12 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             Lizard.goTo("list.html?favorite=1");
         },
 
-        myHouse:function(e){
+        //点击装修
+        toDecorate:function(){
+            Lizard.goTo("decorate.html");
+        },
 
+        myHouse:function(e){
             Lizard.goTo("index.html");
         },
 
