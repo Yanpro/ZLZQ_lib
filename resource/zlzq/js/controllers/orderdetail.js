@@ -28,8 +28,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
         getDetail:function(callback) {
 
             if(!self.isLogin()){
-                var url =Lizard.host+"api/v1/realties/" + Lizard.P("d");
-            }else var url = Lizard.host+"api/v1/realties/" + Lizard.P("d")+"?auth_token="+self.getCurrentUser().authentication_token;
+                var url =Lizard.host+Lizard.apiUrl+"realties/" + Lizard.P("d");
+            }else var url = Lizard.host+Lizard.apiUrl+"realties/" + Lizard.P("d")+"?auth_token="+self.getCurrentUser().authentication_token;
             $.ajax({
                 url: url,
                 dataType: "json",

@@ -44,7 +44,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                     return;
                 }
                 this.showLoading();
-                var url = Lizard.host+"api/v1/users/reset_password";
+                var url = Lizard.host+Lizard.apiUrl+"users/reset_password";
                 $.ajax({
                     url: url,
                     dataType: "json",
@@ -106,7 +106,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                     return;
                 }
                 this.showLoading();
-                var url = Lizard.host+"api/v1/users/login";
+                var url = Lizard.host+Lizard.apiUrl+"users/login";
                 $.ajax({
                     url: url,
                     dataType: "json",

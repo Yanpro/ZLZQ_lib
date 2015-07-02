@@ -70,7 +70,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
         getRealties:function(callback) {
 
             $.ajax({
-                url: Lizard.host+'api/v1/realties/get_counts',
+                url: Lizard.host+Lizard.apiUrl+'realties/get_counts',
                // url: 'http://zlzq.easybird.cn/api/v1/districts',
                 dataType: "json",
                 contentType: "application/json",

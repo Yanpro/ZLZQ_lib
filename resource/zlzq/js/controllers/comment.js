@@ -20,7 +20,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
         },
 
         getDetail:function(callback){
-            var url=Lizard.host+"api/v1/realties/"+Lizard.P("d");
+            var url=Lizard.host+Lizard.apiUrl+"realties/"+Lizard.P("d");
             $.ajax({
                 url: url,
                 dataType: "json",

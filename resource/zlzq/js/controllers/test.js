@@ -175,7 +175,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
         },
         getList:function(callback){
-            var url=Lizard.host+"api/v1/realties/";
+            var url=Lizard.host+Lizard.apiUrl+"realties/";
             if(Lizard.P("favorite")){
                 url=url+"/favors"
             }

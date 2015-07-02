@@ -85,8 +85,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             currentBox.find(".area-bar").removeClass("show");
             currentBox.hide();
             self.$el.find(".mask").hide();
-			
-			
+
+
         },
         setHouseType:function(e) {
             self.$el.find(".house-type>li div").each(function () {
@@ -127,8 +127,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
             if(self.lastFilter && target.data("key")!= self.lastFilter) {
                 var lastBox = self.$el.find("." + self.lastFilter + "-bar-box");
-                 lastBox.removeClass("trans");
-                 lastBox.removeClass("in");
+                lastBox.removeClass("trans");
+                lastBox.removeClass("in");
             }
 
             currentBox.addClass("trans").toggleClass("in");
@@ -146,7 +146,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
         },
         getDistricts:function(callback){
             $.ajax({
-                url: Lizard.host+'api/v1/districts',
+                url: Lizard.host+Lizard.apiUrl+'districts',
                 dataType: "json",
                 contentType: "application/json",
                 type: "get",
@@ -165,7 +165,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
         },
         getList:function(callback){
-            var url=Lizard.host+"api/v1/realties/",
+            var url=Lizard.host+Lizard.apiUrl+"realties/",
                 paras={},
                 method="get";
             if(Lizard.P("favorite")){
@@ -178,7 +178,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 paras.target=decodeURIComponent(Lizard.P("addr"));
             }
             if(Lizard.P("order")){
-                    url=Lizard.host+"api/v1/users/"+self.getCurrentUser().id+"/my_orders?auth_token="+self.getCurrentUser().token,
+                url=Lizard.host+Lizard.apiUrl+"users/"+self.getCurrentUser().id+"/my_orders?auth_token="+self.getCurrentUser().token,
                     paras={},
                     method="get";
 
@@ -195,7 +195,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 data:paras,
                 success: function (data) {
                     callback && callback(data);
-                   ;
+                    ;
 
                 },
                 error: function (e) {
@@ -247,12 +247,11 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
         },
         onHide: function () {
             $("#headerview").show();
-			  document.removeEventListener('touchmove', self.preventDefault, false);
+            document.removeEventListener('touchmove', self.preventDefault, false);
 
         }
     });
 
     return View;
 });
-
 
