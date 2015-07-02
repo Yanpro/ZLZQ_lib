@@ -13,28 +13,44 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             //"click .personal .opt-list .tel":"toUpdateTel",
             "click .gender-box div":"selectGender",
             "click .loginout": "loginout",
-            "click .avatar-box ":"modifyPic",
+            "click .avatar-box ":"modifyPic",//选择修改头像
             "click  .pic-box .cancel":"cancelEditing",
-            "change .choose-box input":"readFile"
+            "change .choose-box input":"readFile"//选择相册
             //"click .pwd_box .g_btn_s": "modifyPwd"
         },
         toUpdateTel:function() {
             self.$el.find(".personal").addClass("tel-active");
             self.setTelHeader();
         },
+
+        //点击选择相册
         readFile:function(e){
-            var self=this,
-                file = e.currentTarget.files[0];
-            if(!/image\/\w+/.test(file.type)){
-                alert("请确保文件为图像类型");
-                return false;
-            }
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function(e) {
-                //self.$el.find(".avatar")[0].src = this.result;
-                self.cancelEditing();
-            }
+            //var self=this,
+            //    file = e.currentTarget.files[0];
+            //if(!/image\/\w+/.test(file.type)){
+            //    alert("请确保文件为图像类型");
+            //    return false;
+            //}
+            //var reader = new FileReader();
+            //reader.readAsDataURL(file);
+            //reader.onload = function(e) {
+            //    //self.$el.find(".avatar")[0].src = this.result;
+            //    self.cancelEditing();
+            //}
+            navigator.camera.getPicture(function(data){
+                $('#picture').attr('src','data:image/jpeg;base64,'+data);
+                //$('#div1').hide();
+            },function(error){
+                console.log('Error');
+            },{
+                destinationType:Camera.DestinationType.DATA_URL,
+                sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
+                allowEdit:false,
+                targetWidth:135,
+                targetHeight:200,
+                mediaType:Camera.MediaType.PICTURE
+            });
+
 
         },
         cancelEditing:function(e){
