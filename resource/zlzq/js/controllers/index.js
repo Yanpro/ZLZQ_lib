@@ -68,7 +68,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
 
         },
         getRealties:function(callback) {
-            alert(Lizard.host);
+
             $.ajax({
                 url: Lizard.host+'api/v1/realties/get_counts',
                // url: 'http://zlzq.easybird.cn/api/v1/districts',
