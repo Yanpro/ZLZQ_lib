@@ -1,37 +1,38 @@
-define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll","cRange","text!TplList"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,cUIScroll,cRange,TplList) {
-    var self,districtsList;
+define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll","cRange","text!TplList","text!TplHList"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,cUIScroll,cRange,TplList,TplHList) {
+    var self;
     var View = BaseView.extend({
         ViewName: 'list',
-        hasTouch :'ontouchstart' in window,
+        url: "http://zlzq.easybird.cn",
         events: {
             "click .favourite": "toFavorite",
             "click .rent": "toRent",
             "click .house-list li": "toHouse",
             "click .location_icon": "toLocation",
             "click .l-ct ": "toIndex",
-            "click .house-type>li div":"setHouseType",
+            "click .house-type>li div": "setHouseType",
             "click .filter-list li": "setFilter",
-            "click .sort-list li":"setSortFilter",
-            "click a.yes":"setTypeFilter",
-            "click .right-column li":"setAreaFilter",
-            "click .left-column li":"setDistrictFilter",
-            "click .r-bar input":"toGetAreaList",
-            "click .r-bar .btn":"cancel",
-            "click .bottom-bar .rent":"toRent",
-            "click .bottom-bar .mine":"toPersonal",
-            "click .bottom-bar .order":"toOrder",
-            "click .bottom-bar .schedule":"toSchedule",
-            "click .search-icon":"toSearch"
+            "click .sort-list li": "setSortFilter",
+            "click a.yes": "setTypeFilter",
+            "click .right-column li": "setAreaFilter",
+            "click .left-column li": "setDistrictFilter",
+            "click .r-bar .search-box-mask": "toGetAreaList",
+            "click .r-bar .btn": "cancel",
+            "click .bottom-bar .rent": "toRent",
+            "click .bottom-bar .mine": "toPersonal",
+            "click .bottom-bar .order": "toOrder",
+            "click .bottom-bar .schedule": "toSchedule",
+            "click .search-icon": "toSearch"
         },
-        cancel:function(e){
+        cancel: function (e) {
             self.$el.find(".r-bar input").val("");
             self.$el.find(".searchBar-inner").removeClass("active");
         },
-        toGetAreaList:function(e){
+        toGetAreaList: function (e) {
             self.$el.find(".searchBar-inner").addClass("active");
+            self.$el.find(".r-bar input").focus();
         },
-        setSortFilter:function(e) {
-            var target=$(e.currentTarget);
+        setSortFilter: function (e) {
+            var target = $(e.currentTarget);
             self.$el.find(".sort-list li").each(function () {
                 var $this = $(this);
                 $this.removeClass("active");
@@ -42,21 +43,45 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             self.$el.find(".mask").removeClass("show");
             document.removeEventListener('touchmove', self.preventDefault, false);
 
-
-            alert(target.html());
+            var sid = target.data("sid"),
+                paras = {};
+            if (sid == 1) {
+                paras = {order: "price_high"}
+            }
+            if (sid == 2) {
+                paras = {order: "price_low"}
+            }
+            if (sid == 3) {
+                paras = {order: "published_at"}
+            }
+            self.search(paras, function (data) {
+                self.$el.find(".house-list-box").html($(_.template(TplHList, {
+                    list: data.realties
+                })));
+                self.lazyLoadImage(data.realties);
+            })
         },
-        setTypeFilter:function(e) {
+        setTypeFilter: function (e) {
 
             var currentBox = self.$el.find(".type-bar-box");
             currentBox.removeClass("in");
             self.$el.find(".mask").removeClass("show");
             document.removeEventListener('touchmove', self.preventDefault, false);
 
-            alert(self.$el.find(".house-type>li div.selected").html());
-
+            var type=self.$el.find(".house-type>li div.selected"),
+                paras={};
+             if(type){
+                 paras["room_count"]=type.data("type");
+             }
+            self.search(paras, function (data) {
+                self.$el.find(".house-list-box").html($(_.template(TplHList, {
+                    list: data.realties
+                })));
+                self.lazyLoadImage(data.realties);
+            })
         },
-        setDistrictFilter:function(e){
-            var target=$(e.currentTarget);
+        setDistrictFilter: function (e) {
+            var target = $(e.currentTarget);
             self.$el.find(".left-column li").each(function () {
                 var $this = $(this);
                 $this.removeClass("current");
@@ -68,14 +93,25 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             self.$el.find(".mask").removeClass("show");
             document.removeEventListener('touchmove', self.preventDefault, false);
 
-
-            alert(target.data("id") + ":" + target.find("p").html());
-
-
-
-
+            self.search({district_id: target.data("id")}, function (data) {
+                self.$el.find(".house-list-box").html($(_.template(TplHList, {
+                    list: data.realties
+                })));
+                self.lazyLoadImage(data.realties);
+            })
         },
-        setAreaFilter:function(e) {
+        lazyLoadImage: function (realties) {
+            _.each(realties, function (v, i) {
+                (function (iid) {
+                    var img = new Image();
+                    img.src = v.avatar.url;
+                    img.onload = function () {
+                        document.getElementById(iid).src = img.src
+                    }
+                })("i" + v.id)
+            })
+        },
+        setAreaFilter: function (e) {
             self.$el.find(".right-column li").each(function () {
                 var $this = $(this);
                 $this.removeClass("selected");
@@ -88,7 +124,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
 
         },
-        setHouseType:function(e) {
+        setHouseType: function (e) {
             self.$el.find(".house-type>li div").each(function () {
                 var $this = $(this);
                 $this.removeClass("selected");
@@ -96,19 +132,35 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             $(e.currentTarget).addClass("selected");
         },
 
-        toIndex:function(e){
+        search: function (paras, callback) {
+            self.showLoading();
+            $.ajax({
+                url: self.url + '/api/v1/realties/search',
+                dataType: "json",
+                type: "post",
+                data: paras,
+                success: function (data) {
+                    self.hideLoading();
+                    callback && callback(data);
+                },
+                error: function (e) {
+                    self.showMyToast("服务器异常", 1000);
+                    self.hideLoading();
+                }
+            });
+
+
+        },
+        toIndex: function (e) {
             Lizard.goTo("index.html");
         },
-        //toRent:function(e){
-        //    self.toggleSideBar();
-        //    Lizard.goTo("list.html");
-        //},
 
-        toHouse:function(e){
+
+        toHouse: function (e) {
             var target = $(e.currentTarget);
             Lizard.goTo("house.html?d=" + target.data("id"));
         },
-        setFilter:function(e) {
+        setFilter: function (e) {
             var target = $(e.currentTarget);
             //if (self.currentFilter == target.data("key")) {
             //    return;
@@ -124,29 +176,28 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 return;
             }
 
-
-            if(self.lastFilter && target.data("key")!= self.lastFilter) {
+            if (self.lastFilter && target.data("key") != self.lastFilter) {
                 var lastBox = self.$el.find("." + self.lastFilter + "-bar-box");
                 lastBox.removeClass("trans");
                 lastBox.removeClass("in");
             }
 
             currentBox.addClass("trans").toggleClass("in");
-            if(currentBox.hasClass("in")){
-                self.$el.find(".mask").css("left",0).addClass("show");
-            }else{
-                self.$el.find(".mask").css("left",0).removeClass("show");
+            if (currentBox.hasClass("in")) {
+                self.$el.find(".mask").css("left", 0).addClass("show");
+            } else {
+                self.$el.find(".mask").css("left", 0).removeClass("show");
             }
             self.lastFilter = target.data("key");
             document.addEventListener('touchmove', self.preventDefault, false);
 
         },
-        preventDefault:function(e){
+        preventDefault: function (e) {
             e.preventDefault();
         },
-        getDistricts:function(callback){
+        getDistricts: function (callback) {
             $.ajax({
-                url: Lizard.host+Lizard.apiUrl+'districts',
+                url: self.url + '/api/v1/districts',
                 dataType: "json",
                 contentType: "application/json",
                 type: "get",
@@ -164,38 +215,37 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             self = this;
 
         },
-        getList:function(callback){
-            var url=Lizard.host+Lizard.apiUrl+"realties/",
-                paras={},
-                method="get";
-            if(Lizard.P("favorite")){
+        getList: function (callback) {
+            var url = self.url + "/api/v1/realties/",
+                paras = {},
+                method = "get";
+            if (Lizard.P("favorite")) {
 
-                url=url+"liked_realties?auth_token="+self.getCurrentUser().token;
+                url = url + "liked_realties?auth_token=" + self.getCurrentUser().token;
             }
-            if(Lizard.P("addr")){
+            if (Lizard.P("addr")) {
                 method = "post";
-                url=url+"search";
-                paras.target=decodeURIComponent(Lizard.P("addr"));
+                url = url + "search";
+                paras.target = decodeURIComponent(Lizard.P("addr"));
             }
-            if(Lizard.P("order")){
-                url=Lizard.host+Lizard.apiUrl+"users/"+self.getCurrentUser().id+"/my_orders?auth_token="+self.getCurrentUser().token,
-                    paras={},
-                    method="get";
+            if (Lizard.P("order")) {
+                url = "http://zlzq.easybird.cn/api/v1/users/" + self.getCurrentUser().id + "/my_orders?auth_token=" + self.getCurrentUser().token,
+                    paras = {},
+                    method = "get";
 
             }
-            if(Lizard.P("d")) {
+            if (Lizard.P("d")) {
                 method = "post";
-                paras.district_id=Lizard.P("d");
-                url=url+"search";
+                paras.district_id = Lizard.P("d");
+                url = url + "search";
             }
             $.ajax({
                 url: url,
                 dataType: "json",
                 type: method,
-                data:paras,
+                data: paras,
                 success: function (data) {
                     callback && callback(data);
-                    ;
 
                 },
                 error: function (e) {
@@ -206,24 +256,30 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
         },
         onShow: function () {
             $("#headerview").hide();
-            self.getDistricts( function(districts){
-                self.districts=districts;
-                self.getList(function(data){
+            self.getDistricts(function (districts) {
+                self.districts = districts;
+                self.getList(function (data) {
                     self.hideLoading();
-                    self.$el.html(_.template(TplList, {list: data.realties,dlist:self.districts}))
+                    self.$el.html(_.template(TplList, {dlist: self.districts}))
+                    self.$el.find(".house-list-box").html($(_.template(TplHList, {
+                        list: data.realties
+                    })));
+                    self.lazyLoadImage(data.realties);
                     self.range = new cRange("rangeBar");
                     self.$el.find(".mask").addClass("m-trans");
                     self.$el.find(".mask")[0].addEventListener("webkitTransitionEnd", function () {
-                        var mask=  self.$el.find(".mask");
-                        if(!mask.hasClass("show")) {
+                        var mask = self.$el.find(".mask");
+                        if (!mask.hasClass("show")) {
                             self.$el.find(".mask").css("left", 999);
                         }
-                    },false);
+                    }, false);
+                    var areaBox = this.$(".area-bar");
+                    areaBox.css("height", self.$el.find(".area-bar-box").height());
+                    this.scrollOpts = {};
+                    this.scrollOpts.wrapper = areaBox, this.scrollOpts.scroller = this.$(".left-column"), this.scroll = new cUIScroll(this.scrollOpts);
                 });
             });
-
         },
-
         setHeader: function (type) {
             self.header.set({
                 title: '&nbsp;',
@@ -237,10 +293,10 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 },
                 events: {
                     returnHandler: function () {
-                        self.toggleSideBar();
+
                     },
                     commitHandler: function () {
-                        self.$('.searchBar').toggleClass('active');
+
                     }
                 }
             });
@@ -251,7 +307,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
         }
     });
-
     return View;
 });
+
 

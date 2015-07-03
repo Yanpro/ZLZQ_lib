@@ -36,7 +36,6 @@
     }
     .content{ font-size: 18px;text-align: center;margin-top:10px; }
 </style>
-<!--页头-->
 <div class="searchBar">
     <div class="searchBar-inner">
         <div class="l-bar">
@@ -48,6 +47,7 @@
 						 </span>
         </div>
         <div class="r-bar">
+            <div class="search-box-mask"></div>
             <i class="search-icon"></i>
             <input type="text" placeholder="小区名称或地址" class="search-box">
             <i class="btn">取消</i>
@@ -56,7 +56,7 @@
 </div>
 
 <!--搜索-->
-<div class="filter-bar" style="position: relative;z-index: 3;  margin-top: -5px;">
+<div class="filter-bar" style="position: fixed;z-index: 3; top:40px; width: 100%">
     <ul class="filter-list">
         <li data-key="area"><span>区域<i class="filter-icon selected"></i></span></li>
         <li data-key="sort"><span>排序<i class="filter-icon"></i></span></li>
@@ -85,16 +85,16 @@
                 <h2>房型</h2>
                 <ul class="house-type">
                     <li>
-                        <div>1室</div>
+                        <div data-type="1">1室</div>
                     </li>
                     <li>
-                        <div>2室</div>
+                        <div  data-type="2">2室</div>
                     </li>
                     <li>
-                        <div>3室</div>
+                        <div  data-type="3">3室</div>
                     </li>
                     <li>
-                        <div>4室以上</div>
+                        <div  data-type="4">4室以上</div>
                     </li>
                 </ul>
             </div>
@@ -107,17 +107,17 @@
 <div class="sort-bar-box ">
     <div class="sort-bar">
         <ul class="sort-list">
-            <li class="active">默认排序</li>
-            <li>租金由高到底</li>
-            <li>租金由底到高</li>
-            <li>按发布时间</li>
+            <li class="active" data-sid="0">默认排序</li>
+            <li data-sid="1">租金高由高到底</li>
+            <li data-sid="2">租金高由底到高</li>
+            <li data-sid="3">按发布时间排序</li>
         </ul>
     </div>
 </div>
-<div class="area-bar-box ">
-    <div class="area-bar">
-        <div class="left-column">
-            <ul style="height: auto; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; -webkit-transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+<div class="area-bar-box " >
+    <div class="area-bar" style="position: relative; overflow: hidden;width: 108px;background-color: #eee; ">
+        <div class="left-column"  >
+            <ul >
                 <%_.each(dlist, function(v,i){ %>
                 <li data-id="<%=v.id%>">
                     <a>
@@ -133,35 +133,8 @@
 
 <!--房屋列表-->
 <div class="mask"></div>
-<%if(list!=""){%>
-<ul class="house-list">
-    <%_.each(list, function(v,i){ %>
-    <li data-id="<%=v.id%>">
-        <a>
-            <div class="img">
-                <img src="<%=v.avatar.url%>">
-            </div>
-            <div class="txt">
-                <p class="monthly"><em><%=v.price%></em>&nbsp;元&nbsp;/&nbsp;月</p>
-
-                <p><%=v.title%>&nbsp;&nbsp;|&nbsp;&nbsp;<%=v.area%>m<sup>2</sup></p>
-
-                <p class="addr">地址:<%=v.address%>&nbsp;&nbsp;</p>
-                <p class="">发布时间:<%=v.created_at.substring(0,10)%>&nbsp;&nbsp;</p>
-                <p class="">更新时间:<%=v.updated_at.substring(0,10)%>&nbsp;&nbsp;</p>
-                <p class="">房源性质:<%=v.realty_type%>&nbsp;&nbsp;</p>
-                <p class="">配套设施:<%=v.house_device_id%>&nbsp;&nbsp;</p>
-            </div>
-        </a>
-    </li>
-    <%})%>
-
-</ul>
-<%}else{ %>
-<div class="content" >
-    <h2>对不起未找到相关信息!</h2>
+<div class="house-list-box" style="padding-top: 30px;">
 </div>
-<%}%>
 <div class="bottom-bar">
     <ul>
         <li class="rent">
@@ -172,10 +145,6 @@
             <i class="b-icon o-icon"></i>
             <span>约看清单</span>
         </li>
-        <!--<li class="schedule">
-            <i class="b-icon c-icon"></i>
-            <span>看房日程</span>
-        </li>-->
         <li class="mine">
             <i class="b-icon i-icon"></i>
             <span>我的</span>

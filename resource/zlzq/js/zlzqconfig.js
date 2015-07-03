@@ -16,6 +16,7 @@
 			'TplSchedule': baseUrl + 'templates/schedule.html',
 			'TplHouse': baseUrl + 'templates/house.html',
 			'TplList': baseUrl + 'templates/list.html',
+			'TplHList':baseUrl + 'templates/hlist.html',
 	       	'TplComment': baseUrl + 'templates/comment.html',
 			'TplOrder': baseUrl + 'templates/order.html',
 			'TplSubscribe': baseUrl + 'templates/subscribe.html',
