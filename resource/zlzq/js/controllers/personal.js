@@ -15,7 +15,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             "click .loginout": "loginout",
             "click .avatar-box ":"modifyPic",//选择修改头像
             "click  .pic-box .cancel":"cancelEditing",
-            "change .choose-box input":"readFile"//选择相册
+            "change .choose-box":"readFile"//选择相册
             //"click .pwd_box .g_btn_s": "modifyPwd"
         },
         toUpdateTel:function() {
@@ -37,7 +37,9 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             //    //self.$el.find(".avatar")[0].src = this.result;
             //    self.cancelEditing();
             //}
+            alert("-------1--------");
             navigator.camera.getPicture(function(data){
+                alert("---------------");
                 $('#picture').attr('src','data:image/jpeg;base64,'+data);
                 //$('#div1').hide();
             },function(error){
