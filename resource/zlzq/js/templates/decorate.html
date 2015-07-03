@@ -1,15 +1,40 @@
 <!--装修页面-->
 <style type="text/css">
-
     .content{ font-size: 18px;text-align: center;margin-top:10px; }
-
 </style>
-<ul class="house-list order-list">
+<div class="searchBar">
+    <div class="searchBar-inner">
 
-
-<div class="content" >
-    <h2>装修</h2>
+    </div>
 </div>
+<div class="mask"></div>
+<%if(list!=""){%>
+<ul class="house-list">
+    <%_.each(list, function(v,i){ %>
+    <li data-id="<%=v.id%>">
+        <a>
+            <div class="img">
+                <img src="<%=v.avatar.url%>">
+            </div>
+            <div class="txt">
+
+                <p class="monthly"><em><%=v.title%></em>&nbsp;&nbsp;</p>
+                <p class="btn"><em><%=v.body.substring(0,10)%>...</em></p>
+            </div>
+
+            <!--<div class="state">-->
+            <!--<p class="monthly"><em><%=v.state%></em></p>-->
+            <!--</div>-->
+        </a>
+    </li>
+    <%})%>
+
+</ul>
+<%}else{ %>
+<div class="content" >
+    <h2>对不起未找到相关信息!</h2>
+</div>
+<%}%>
 
 <div class="bottom-bar">
     <ul>
@@ -19,7 +44,7 @@
         </li>
         <li  class="order">
             <i class="b-icon o-icon"></i>
-        <span>约看清单</span>
+        <span>装修</span>
         </li>
         <li class="mine">
             <i class="b-icon i-icon"></i>
