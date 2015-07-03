@@ -1,8 +1,10 @@
 //装修页面
 define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!TplDecorate"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,TplDecorate) {
-    var self;
+    var self,
+        listModel=Model.ListModel.getInstance();
     var View = BaseView.extend({
-        ViewName: 'comment',
+        ViewName: 'orderlist',
+        hasTouch :'ontouchstart' in window,
         events: {
             "click .house-list li": "toOrderDetail",
             "click .bottom-bar .rent":"toRent",
