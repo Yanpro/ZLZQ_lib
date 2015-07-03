@@ -11,6 +11,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             "click .info_label_item1 .myhouse":"myHouse",
             "click .info_label_item1 .favourite":"toMyFavourite",
             "click .info_label_item1 .decorate":"toDecorate",
+            "click .info_label_item1 .watch":"toWatch",
 
         },
 
@@ -70,6 +71,11 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             self.houseSlider.show();
 
         },
+
+        toWatch:function(){
+
+        },
+
         //设置标题
         setHeader: function (type) {
             self.header.set({
