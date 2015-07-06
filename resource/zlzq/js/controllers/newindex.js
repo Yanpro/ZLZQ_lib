@@ -20,7 +20,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
         toMyFavourite:function(){
             var isLogin = self.isLogin();
             if (!isLogin) {
-                Lizard.goTo("login.html");
+                Lizard.goTo("login.html?fromPage=0");
                 //self.showMyToast("请先登录", 2000);
                 return;
             }

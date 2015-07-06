@@ -26,7 +26,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
         toFavourite:function(e){
             var isLogin = self.isLogin();
             if (!isLogin) {
-                Lizard.goTo("login.html");
+                Lizard.goTo("login.html?fromPage=1");
                 //self.showMyToast("请先登录", 2000);
                 return;
             }

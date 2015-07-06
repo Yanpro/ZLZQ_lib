@@ -64,7 +64,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             self.header.set({
                 title: '装修公司',
                 back: true,
-                backtext: '<i class="icon-back "></i> ',
+                backtext: '<i class="icon-back"></i> ',
                 view: this,
                 events: {
                     returnHandler: function () {
