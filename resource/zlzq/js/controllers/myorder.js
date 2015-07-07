@@ -26,7 +26,6 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             self.showMyToast('网络错误，请重试', 2000);
         },
 
-
         getDate:function(){
             var d1 = [];
             for (var i = 0; i < 5; i++) {
@@ -53,6 +52,10 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             var timeEdata = $.trim(this.$el.find(".timeE").val());
             if(!timeEdata){
                 this.showMyToast("请选择日期", 1000);
+                return;
+            }
+            if(Date.parse(timeSdata)>=Date.parse(timeEdata)){
+                this.showMyToast("开始时间应小于截止时间", 1000);
                 return;
             }
             var yearsdata = $.trim(this.$el.find(".years").val());
