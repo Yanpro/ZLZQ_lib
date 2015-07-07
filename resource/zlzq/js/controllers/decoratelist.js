@@ -16,6 +16,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
         toDecorateDetail:function(e){
             var target = $(e.currentTarget);
+            self.showLoading();
             Lizard.goTo("decoratedetail.html?d=" + target.data("id"));
         },
         ajaxException: function (msg) {
@@ -30,7 +31,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             var url=Lizard.host+Lizard.apiUrl+"companies",
                 paras={},
                 method="get";
-
+            self.showLoading();
             $.ajax({
                 url: url,
                 dataType: "json",
