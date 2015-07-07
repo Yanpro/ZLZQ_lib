@@ -6,7 +6,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             "click .timeS-mask" :"selectDate",
             "click .timeE-mask" :"selectDate",
             "click .years" :"years",
-            "click .phone" :"phone",
+            //"click .phone" :"getPhone",
 
         },
 
@@ -25,6 +25,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             self.hideLoading();
             self.showMyToast('网络错误，请重试', 2000);
         },
+
 
         getDate:function(){
             var d1 = [];
@@ -92,7 +93,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         },
         onShow: function () {
             self.setHeader();
-
+            self.$el.find(".phone").val(self.getCurrentUser().cell);//手机号默认值
             var d1 = this.getDate(), initData = [d1, d1[0].months, d1[0].months[0].days], initIndex = [0, 0, 0];
             self.dateScroller = self.dateScroller || new UIGroupSelect({
                 datamodel: {title: "看房时间", tips: ""},
