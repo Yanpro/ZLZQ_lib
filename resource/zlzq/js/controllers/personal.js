@@ -322,7 +322,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         onShow: function () {
             self.setHeader();
            // self.$el.html(_.template(tplPersonal)({user: this.getCurrentUser()}));
-            self.$el.html(_.template(tplPersonal)({user: {nick_name:"123",cell:"18915296556"}}));
+            self.$el.html(_.template(tplPersonal)({user: {nick_name:self.getCurrentUser().nick_name,cell:self.getCurrentUser().cell}}));
             self.hideLoading();
 
         },
