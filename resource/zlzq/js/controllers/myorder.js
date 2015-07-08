@@ -6,7 +6,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             "click .timeS-mask" :"selectDate",
             "click .timeE-mask" :"selectDate",
             "click .years" :"years",
-            "click .phone" :"phone",
+            //"click .phone" :"getPhone",
 
         },
 
@@ -55,6 +55,10 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                 this.showMyToast("请选择日期", 1000);
                 return;
             }
+            if(Date.parse(timeSdata)>=Date.parse(timeEdata)){
+                this.showMyToast("开始时间应小于截止时间", 1000);
+                return;
+            }
             var yearsdata = $.trim(this.$el.find(".years").val());
             if(!yearsdata){
                 this.showMyToast("请填写月数", 1000);
@@ -89,10 +93,10 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         },
         onShow: function () {
             self.setHeader();
-
+            self.$el.find(".phone").val(self.getCurrentUser().cell);//手机号默认值
             var d1 = this.getDate(), initData = [d1, d1[0].months, d1[0].months[0].days], initIndex = [0, 0, 0];
             self.dateScroller = self.dateScroller || new UIGroupSelect({
-                datamodel: {title: "看房时间", tips: ""},
+                datamodel: {title: "选择日期", tips: ""},
                 needAnimat: !1,
                 data: initData,
                 indexArr: initIndex,

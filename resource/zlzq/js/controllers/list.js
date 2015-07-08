@@ -16,7 +16,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             "click .right-column li": "setAreaFilter",
             "click .left-column li": "setDistrictFilter",
             "click .r-bar .search-box-mask": "toGetAreaList",
-            "click .r-bar .btn": "cancel",
+            "click .r-bar .btn": "toSearch",
             "click .bottom-bar .rent": "toRent",
             "click .bottom-bar .mine": "toPersonal",
             "click .bottom-bar .order": "toOrder",

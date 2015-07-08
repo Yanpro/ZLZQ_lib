@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c126557-211b-4152-993c-a0f65d093cf7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/decoratelist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resource/zlzq/js/templates/decoratelist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/decoratelist.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/controllers/decoratedetail.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/decoratedetail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/controllers/decoratelist.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/decoratelist.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/templates/house.html" afterPath="$PROJECT_DIR$/resource/zlzq/js/templates/house.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/controllers/house.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/house.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/controllers/index.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/templates/list.html" afterPath="$PROJECT_DIR$/resource/zlzq/js/templates/list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/controllers/list.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/controllers/login.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/templates/myorder.html" afterPath="$PROJECT_DIR$/resource/zlzq/js/templates/myorder.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/controllers/myorder.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/myorder.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/controllers/newindex.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/newindex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personal.html" afterPath="$PROJECT_DIR$/personal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/templates/personal.html" afterPath="$PROJECT_DIR$/resource/zlzq/js/templates/personal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/zlzqconfig.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/zlzqconfig.js" />
-      <change type="MOVED" beforePath="D:\WebstormProjects\ZLZQ\decorate.html" afterPath="$PROJECT_DIR$/decoratedetail.html" />
-      <change type="MOVED" beforePath="D:\WebstormProjects\ZLZQ\resource\zlzq\js\controllers\decorate.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/decoratedetail.js" />
-      <change type="MOVED" beforePath="D:\WebstormProjects\ZLZQ\resource\zlzq\js\templates\decorate.html" afterPath="$PROJECT_DIR$/resource/zlzq/js/templates/decoratedetail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/templates/order.html" afterPath="$PROJECT_DIR$/resource/zlzq/js/templates/order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/templates/orderlist.html" afterPath="$PROJECT_DIR$/resource/zlzq/js/templates/orderlist.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/zlzq/js/controllers/personal.js" afterPath="$PROJECT_DIR$/resource/zlzq/js/controllers/personal.js" />
     </list>
     <ignored path="ZLZQ.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,14 +47,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseView.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BaseView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resource/zlzq/js/common/views/BaseView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2311733">
+            <state vertical-scroll-proportion="0.0">
               <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
                 <marker date="1435825046692" expanded="true" signature="4318:4332" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="decoratedetail.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resource/zlzq/js/controllers/decoratedetail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="decoratelist.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resource/zlzq/js/controllers/decoratelist.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.80982906">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,7 +95,7 @@
             <state vertical-scroll-proportion="22.344828">
               <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
               <folding>
-                <marker date="1436098275672" expanded="true" signature="3759:3939" placeholder="{...}" />
+                <marker date="1436371441354" expanded="true" signature="3793:3973" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -135,7 +158,6 @@
         <option value="$PROJECT_DIR$/resource/zlzq/js/controllers/newindex.js" />
         <option value="$PROJECT_DIR$/resource/zlzq/js/templates/decoratelist.html" />
         <option value="$PROJECT_DIR$/resource/zlzq/js/zlzqconfig.js" />
-        <option value="$PROJECT_DIR$/resource/zlzq/js/controllers/decoratelist.js" />
         <option value="$PROJECT_DIR$/decoratedetail.html" />
         <option value="$PROJECT_DIR$/resource/zlzq/js/templates/decoratedetail.html" />
         <option value="$PROJECT_DIR$/resource/zlzq/js/controllers/list.js" />
@@ -143,6 +165,7 @@
         <option value="$PROJECT_DIR$/resource/zlzq/js/templates/list.html" />
         <option value="$PROJECT_DIR$/resource/zlzq/js/templates/personal.html" />
         <option value="$PROJECT_DIR$/resource/zlzq/js/controllers/decoratedetail.js" />
+        <option value="$PROJECT_DIR$/resource/zlzq/js/controllers/decoratelist.js" />
       </list>
     </option>
   </component>
@@ -264,7 +287,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -463,7 +486,13 @@
       <option name="project" value="LOCAL" />
       <updated>1435896313199</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="一些小bug修复">
+      <created>1436371398080</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1436371398080</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -472,6 +501,7 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24478331" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17166667" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33516052" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -482,7 +512,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20833333" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -531,7 +560,8 @@
     <MESSAGE value="首页接入、昵称更改、bug修复" />
     <MESSAGE value="便于服务器修改配置问题" />
     <MESSAGE value="头像" />
-    <option name="LAST_COMMIT_MESSAGE" value="头像" />
+    <MESSAGE value="一些小bug修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="一些小bug修复" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -783,13 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resource/zlzq/js/controllers/decoratelist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resource/zlzq/js/controllers/orderdetail.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -862,14 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resource/zlzq/js/controllers/decoratedetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="28" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resource/zlzq/js/zlzqconfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24343258">
@@ -883,7 +898,7 @@
         <state vertical-scroll-proportion="22.344828">
           <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding>
-            <marker date="1436098275672" expanded="true" signature="3759:3939" placeholder="{...}" />
+            <marker date="1436371441354" expanded="true" signature="3793:3973" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -898,11 +913,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resource/zlzq/js/common/views/BaseView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2311733">
+        <state vertical-scroll-proportion="0.0">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
             <marker date="1435825046692" expanded="true" signature="4318:4332" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource/zlzq/js/controllers/decoratedetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource/zlzq/js/controllers/decoratelist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80982906">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

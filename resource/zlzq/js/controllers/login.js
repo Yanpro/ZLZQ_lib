@@ -125,7 +125,8 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                             data.user.pwd=self.$el.find("#password").val();
                             self.setLoginStatus({isLogin: true,user: data.user,token:data.token});
 
-                            Lizard.goTo("index.html");
+                            //Lizard.goTo("index.html");
+                            self.returnPage();
 
                         }
 
@@ -155,16 +156,25 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                 this.$el.find("#password").val("");
                 //this.$el.find("#username").value("");
             },
+
+            //返回原页
+            returnPage: function (){
+                if(Lizard.P("fromPage")==0) Lizard.goTo("newindex.html");
+                if(Lizard.P("fromPage")==1) Lizard.goTo("list.html");
+
+                Lizard.goTo("newindex.html");
+            },
+
             //设置标题
             setHeader: function (type) {
                 self.header.set({
                     title: '登录',
-                    back: !0,
-                    backtext: '<i class="top_more left"></i> ',
+                    back: true,
+                    backtext: '<i class="icon-back"></i> ',
                     view: this,
                     events: {
                         returnHandler: function () {
-
+                            self.returnPage();
                         },
                         commitHandler: function () {
 

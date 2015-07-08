@@ -13,8 +13,8 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
             "click .location_icon" :"toLocation",
             "click .search-icon":"toSearch",
             "click .c-ct ":"toList",
-            "click .r-bar input":"toGetAreaList",
-            "click .r-bar .btn":"cancel",
+            "click .r-bar .search-box-mask":"toGetAreaList",
+            "click .r-bar .btn":"toSearch",
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toPersonal",
             "click .bottom-bar .order":"toOrder",
@@ -29,6 +29,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
 
         toGetAreaList:function(e){
             self.$el.find(".searchBar-inner").addClass("active");
+            self.$el.find(".r-bar input").focus();
         },
         toPersonal:function(e){
             if(this.isLogin()){
@@ -89,6 +90,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
 
         },
         onShow: function () {
+            self.cancel();
             var noCheck = Lizard.P("noCheck");
           //  self.setHeader();
          //   self.showLoading();

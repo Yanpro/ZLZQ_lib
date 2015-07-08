@@ -36,6 +36,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
                 success: function (data) {
                     callback(data);
                     self.houseData = data;
+                    self.hideLoading();
                 },
                 error: function (e) {
 
@@ -51,15 +52,15 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
 
             $("#headerview").hide();
             $("#main").css("padding","0");
-
-            self.hideLoading();
+            self.$el.html(TplDecorateDetail);
+            //self.hideLoading();
 
             self.getDetail(function (data) {
 
                 self.setHeader();
-                self.hideLoading();
-                self.$el.html(_.template(TplDecorateDetail, {decorate: data}));
 
+                self.$el.html(_.template(TplDecorateDetail, {decorate: data}));
+                //self.hideLoading();
             });
 
         },
