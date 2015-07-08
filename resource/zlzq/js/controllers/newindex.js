@@ -29,7 +29,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
 
         //点击装修
         toDecorate:function(){
-            Lizard.goTo("decorate.html");
+            Lizard.goTo("decoratelist.html");
         },
 
         myHouse:function(e){

@@ -1,19 +1,23 @@
-//装修页面
-define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!TplDecorate"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,TplDecorate) {
+define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll","cRange","text!TplDecorateList"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,cUIScroll,cRange,TplDecorateList) {
     var self,
         listModel=Model.ListModel.getInstance();
     var View = BaseView.extend({
-        ViewName: 'orderlist',
+        ViewName: 'decoratelist',
         hasTouch :'ontouchstart' in window,
         events: {
-            "click .house-list li": "toOrderDetail",
+
+            "click .house-list li": "toDecorateDetail",
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toPersonal",
             "click .bottom-bar .order":"toOrder",
             "click .bottom-bar .schedule":"toSchedule",
-            "click .search-icon":"toSearch",
+            "click .search-icon":"toSearch"
         },
 
+        toDecorateDetail:function(e){
+            var target = $(e.currentTarget);
+            Lizard.goTo("decoratedetail.html?d=" + target.data("id"));
+        },
         ajaxException: function (msg) {
             self.hideLoading();
             self.showMyToast('网络错误，请重试', 2000);
@@ -22,12 +26,11 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             self = this;
 
         },
-
         getList:function(callback){
             var url=Lizard.host+Lizard.apiUrl+"companies",
                 paras={},
                 method="get";
-            var orderDate=new Array(2);
+
             $.ajax({
                 url: url,
                 dataType: "json",
@@ -36,10 +39,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
                 success: function (data) {
                     self.hideLoading();
 
-                    for(var i=0;i<data.realties.length;i++){
-                        data.realties[i].state=data.orders[i].state;
-                    }
-                    //self.$el.html(_.template(TplOrderList, {list: data.realties}));
+                    self.$el.html(_.template(TplDecorateList, {list: data}));
 
                 },
                 error: function (e) {
@@ -48,17 +48,16 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
                 }
             });
         },
-
         onShow: function () {
             $("#headerview").hide();
-            self.setHeader();
-            //self.$el.html(TplDecorate);
             self.hideLoading();
+            self.setHeader();
             self.getList();
 
 
 
         },
+
         //设置标题
         setHeader: function () {
             self.header.set({
@@ -80,6 +79,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
 
         }
     });
-
     return View;
-})
+});
+
+

@@ -32,7 +32,8 @@
 			'TplOrderList':baseUrl + 'templates/orderlist.html',
 			'TplOrderDetail':baseUrl + 'templates/orderdetail.html',
 			'TplNewIndex':baseUrl + 'templates/newindex.html',
-			'TplDecorate':baseUrl + 'templates/decorate.html',
+			'TplDecorateDetail':baseUrl + 'templates/decoratedetail.html',
+			'TplDecorateList':baseUrl + 'templates/decoratelist.html',
 	    }
 	};
 	config.urlArgs = "v=1";

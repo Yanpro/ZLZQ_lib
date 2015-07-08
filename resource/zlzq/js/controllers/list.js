@@ -275,8 +275,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                     }, false);
                     var areaBox = this.$(".area-bar");
                     areaBox.css("height", self.$el.find(".area-bar-box").height());
-                    this.scrollOpts = {};
-                    this.scrollOpts.wrapper = areaBox, this.scrollOpts.scroller = this.$(".left-column"), this.scroll = new cUIScroll(this.scrollOpts);
+                    //this.scrollOpts = {};
+                    //this.scrollOpts.wrapper = areaBox, this.scrollOpts.scroller = this.$(".left-column"), this.scroll = new cUIScroll(this.scrollOpts);
                 });
             });
         },
