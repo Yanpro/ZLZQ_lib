@@ -347,7 +347,9 @@
      </li>
      <li>
          <span class="info_name">合租情况</span>
-         <span>出租一室</span>
+         <%if(realty.description!=null){%>
+         <span><%=realty.description%></span>
+         <%}%>
      </li>
      <li>
          <span class="info_name">装修</span>
@@ -376,13 +378,13 @@
      <li>
          <span class="info_name">发布时间</span>
          <%if(realty.created_at!=null){%>
-         <span><%=realty.created_at%></span>
+         <span><%=realty.created_at.substring(0,10)%></span>
          <%}%>
      </li>
      <li>
          <span class="info_name">更新时间</span>
          <%if(realty.updated_at!=null){%>
-         <span><%=realty.updated_at%></span>
+         <span><%=realty.updated_at.substring(0,10)%></span>
          <%}%>
      </li>
  </ul>
@@ -397,8 +399,8 @@
  <ul class="info_list info_ct house_info_list">
      <li>
          <span class="info_name">房源描述</span>
-         <%if(realty.description!=null){%>
-         <span><%=realty.description%></span>
+         <%if(realty.direction!=null){%>
+         <span><%=realty.direction%></span>
          <%}%>
      </li>
  </ul>
