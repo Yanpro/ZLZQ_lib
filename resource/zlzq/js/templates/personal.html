@@ -1,3 +1,40 @@
+<!--<script type="text/javascript">
+    $(document).bind('deviceready',function(){
+        $('#camera').bind('touchstart',function(){
+            alert("-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;");
+            navigator.camera.getPicture(function(data){
+                $('#picture').attr('src','data:image/jpeg;base64,'+data);
+
+            },function(error){
+                console.log('Error');
+            },{
+                destinationType:Camera.DestinationType.DATA_URL,
+                sourceType:Camera.PictureSourceType.CAMERA,
+                allowEdit:false,
+                targetWidth:135,
+                targetHeight:200
+            });
+        });
+
+        $('#choose-box').bind('touchstart',function(){
+            navigator.camera.getPicture(function(data){
+                $('#picture').attr('src','data:image/jpeg;base64,'+data);
+
+            },function(error){
+                console.log('Error');
+            },{
+                destinationType:Camera.DestinationType.DATA_URL,
+                sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
+                allowEdit:false,
+                targetWidth:135,
+                targetHeight:200,
+                mediaType:Camera.MediaType.PICTURE
+            });
+        });
+
+
+    });
+</script>-->
 <div class="personal">
     <div class="info-box">
      <div class="avatar-box">
@@ -26,6 +63,9 @@
 
         <div style="text-align: center;margin-top: 20px; background: #fff;line-height: 40px;" class="loginout">
             退出登录
+        </div>
+        <div style="text-align: center;margin-top: 20px; background: #fff;line-height: 40px;" class="exit">
+            退出
         </div>
     </div>
     <div class="name-box">
@@ -72,8 +112,8 @@
         <div style="position: fixed;top: 0;bottom: 0;   background-color: rgba(0, 0, 0, 0.7);  width: 10"></div>
         <div  class="menu" >
             <ul>
-                <li>拍照</li>
-                <li class="choose-box">从相册中选择<input type="file"  accept="image/*" ></li>
+                <li id="camera">拍照</li>
+                <li id="choose-box">从相册中选择</li>
                 <li class="cancel">取消</li>
             </ul>
         </div>

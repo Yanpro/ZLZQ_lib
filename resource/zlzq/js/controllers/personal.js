@@ -15,14 +15,30 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             "click .loginout": "loginout",
             "click .avatar-box ":"modifyPic",//选择修改头像
             "click  .pic-box .cancel":"cancelEditing",
-            "change .choose-box":"readFile"//选择相册
-            //"click .pwd_box .g_btn_s": "modifyPwd"
+            "click #choose-box":"readFile",//选择相册
+            "click #camera":"camera",//拍照
+            "click .exit": "exit"
         },
+    exit:function() {
+        navigator.app.exitApp();
+    },
         toUpdateTel:function() {
             self.$el.find(".personal").addClass("tel-active");
             self.setTelHeader();
         },
-
+        camera:function(e) {
+            navigator.camera.getPicture(function (data) {
+                $('#picture').attr('src','data:image/jpeg;base64,'+data);
+            }, function (error) {
+                console.log('Error');
+            }, {
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType:Camera.PictureSourceType.CAMERA,
+                allowEdit: false,
+                targetWidth: 135,
+                targetHeight: 200
+            });
+        },
         //点击选择相册
         readFile:function(e){
             //var self=this,
@@ -37,10 +53,9 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             //    //self.$el.find(".avatar")[0].src = this.result;
             //    self.cancelEditing();
             //}
-            alert("-------1--------");
+
             navigator.camera.getPicture(function(data){
-                alert("---------------");
-                $('#picture').attr('src','data:image/jpeg;base64,'+data);
+               $('#picture').attr('src','data:image/jpeg;base64,'+data);
                 //$('#div1').hide();
             },function(error){
                 console.log('Error');

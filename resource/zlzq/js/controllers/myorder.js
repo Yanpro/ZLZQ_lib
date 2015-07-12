@@ -45,6 +45,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             return d1;
         },
         commitData:function(){
+
             var timeSdata = $.trim(this.$el.find(".timeS").val());
             if(!timeSdata){
                 this.showMyToast("请选择日期", 1000);
@@ -59,9 +60,9 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                 this.showMyToast("开始时间应小于截止时间", 1000);
                 return;
             }
-            var yearsdata = $.trim(this.$el.find(".years").val());
+            var yearsdata = $.trim(this.$el.find("option").not(function(){ return !this.selected }).val());
             if(!yearsdata){
-                this.showMyToast("请填写月数", 1000);
+                this.showMyToast("请选择月数", 1000);
                 return;
             }
             var phonedata = $.trim(this.$el.find(".phone").val());

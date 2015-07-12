@@ -74,7 +74,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
 
         toWatch:function(){
             //window.open('http://mp.weixin.qq.com/s?__biz=MzA3OTYxMTI3NQ==&mid=206959655&idx=1&sn=cedf50c168a7bb3c0e595fc6a84283e2#rd');
-            location.href = "http://mp.weixin.qq.com/s?__biz=MzA3OTYxMTI3NQ==&mid=206959655&idx=1&sn=cedf50c168a7bb3c0e595fc6a84283e2#rd";
+           /* location.href = "http://mp.weixin.qq.com/s?__biz=MzA3OTYxMTI3NQ==&mid=206959655&idx=1&sn=cedf50c168a7bb3c0e595fc6a84283e2#rd";*/
+            Lizard.goTo("wechat.html");
         },
 
         //设置标题

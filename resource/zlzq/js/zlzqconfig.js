@@ -34,6 +34,7 @@
 			'TplNewIndex':baseUrl + 'templates/newindex.html',
 			'TplDecorateDetail':baseUrl + 'templates/decoratedetail.html',
 			'TplDecorateList':baseUrl + 'templates/decoratelist.html',
+			'TplWeChat':baseUrl + 'templates/wechat.html',
 	    }
 	};
 	config.urlArgs = "v=1";
