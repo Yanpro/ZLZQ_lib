@@ -27,6 +27,14 @@ define(['cPageView', 'cGuider', 'cUtility','Store','Model', 'UIAlert'], function
 			Lizard.goTo("newindex.html");
 		},
 
+		toOrderList:function(){
+			if(this.isLogin()){
+				Lizard.goTo("orderlist.html");
+			}else {
+				Lizard.goTo("login.html");
+			}
+		},
+
 		toOrder:function(e){
 			Lizard.goTo("order.html");
 		},

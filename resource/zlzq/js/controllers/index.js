@@ -17,7 +17,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
             "click .r-bar .btn":"toSearch",
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toPersonal",
-            "click .bottom-bar .order":"toOrder",
+            "click .bottom-bar .order":"toOrderList",
             //"click .bottom-bar .schedule":"toSchedule"
         },
         cancel:function(e){

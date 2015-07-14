@@ -14,7 +14,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             "click .opt-list .order":"toOrderList",
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toMine",
-            "click .bottom-bar .order":"toOrder",
+            "click .bottom-bar .order":"toOrderList",
             //"click .bottom-bar .schedule":"toSchedule"
         },
         //toMyFavorites:function(e){

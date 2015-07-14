@@ -9,7 +9,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             "click .house-list li": "toOrderDetail",
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toPersonal",
-            "click .bottom-bar .order":"toOrder",
+            //"click .bottom-bar .order":"toOrder",
             "click .bottom-bar .schedule":"toSchedule",
             "click .search-icon":"toSearch"
         },
@@ -70,7 +70,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
                 events: {
                     returnHandler: function () {
-                        Lizard.goTo("user.html");
+                        Lizard.goTo("newindex.html");
                     },
                     commitHandler: function () {
 

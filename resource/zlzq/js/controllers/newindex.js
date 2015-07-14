@@ -7,7 +7,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
 
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toPersonal",
-            "click .bottom-bar .order":"toOrder",
+            "click .bottom-bar .order":"toOrderList",
             "click .info_label_item1 .myhouse":"myHouse",
             "click .info_label_item1 .favourite":"toMyFavourite",
             "click .info_label_item1 .decorate":"toDecorate",
